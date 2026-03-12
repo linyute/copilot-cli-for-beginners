@@ -1,0 +1,134 @@
+{
+  "settings": {
+    "fontSize": 18,
+    "width": 1000,
+    "height": 600,
+    "theme": "Dracula",
+    "typingSpeed": "60ms",
+    "framerate": 10,
+    "startupWait": 5,
+    "responseWait": 40,
+    "exitWait": 3
+  },
+  "demos": [
+    {
+      "chapter": "00-quick-start",
+      "name": "hello-demo",
+      "description": "向 Copilot 打招呼並探索它可以提供哪些幫助",
+      "prompt": "打個招呼並告訴我你可以提供哪些幫助"
+    },
+    {
+      "chapter": "01-setup-and-first-steps",
+      "name": "code-review-demo",
+      "description": "檢閱檔案的程式碼品質問題並建議改進方案",
+      "prompt": "檢閱 @samples/book-app-project/book_app.py 的程式碼品質問題並建議改進方案"
+    },
+    {
+      "chapter": "01-setup-and-first-steps",
+      "name": "explain-code-demo",
+      "description": "以簡單的方式解釋 Python 檔案的功能",
+      "prompt": "以簡單的方式解釋 @samples/book-app-project/books.py 的功能"
+    },
+    {
+      "chapter": "01-setup-and-first-steps",
+      "name": "generate-code-demo",
+      "description": "根據自然語言描述產生 Python 函式",
+      "responseWait": 35,
+      "prompt": "編寫一個 Python 函式，該函式接收書籍列表並回傳統計資訊：總數、已讀數量、未讀數量、最舊與最新的書籍"
+    },
+    {
+      "chapter": "02-context-conversations",
+      "name": "file-context-demo",
+      "description": "使用 @file 詢問特定的檔案",
+      "prompt": "@samples/book-app-project/utils.py 的功能為何？請簡短總結。"
+    },
+    {
+      "chapter": "02-context-conversations",
+      "name": "multi-file-demo",
+      "description": "參考多個檔案以了解資料流程",
+      "prompt": "比較 @samples/book-app-project/book_app.py 與 @samples/book-app-project/books.py - 它們如何協作？資料流程為何？"
+    },
+    {
+      "chapter": "02-context-conversations",
+      "name": "multi-turn-demo",
+      "description": "建立在先前情境上的多輪對話",
+      "prompts": [
+        "@samples/book-app-project/ 請給我這個專案的概觀",
+        "主要的程式碼品質問題有哪些？",
+        { "text": "我應該先修復哪個問題？並示範如何操作？", "responseWait": 45 }
+      ]
+    },
+    {
+      "chapter": "03-development-workflows",
+      "name": "code-review-demo",
+      "description": "流程 1：程式碼檢閱 - 檢閱檔案的程式碼品質",
+      "responseWait": 30,
+      "prompt": "檢閱 @samples/book-app-project/book_app.py 的程式碼品質"
+    },
+    {
+      "chapter": "03-development-workflows",
+      "name": "refactor-demo",
+      "description": "流程 2：重構 - 將指令處理重構為字典派送模式",
+      "responseWait": 60,
+      "prompt": "@samples/book-app-project/book_app.py 將指令處理重構為使用字典派送模式，而不是 if/elif 鏈"
+    },
+    {
+      "chapter": "03-development-workflows",
+      "name": "fix-bug-demo",
+      "description": "流程 3：除錯 - 針對搜尋問題進行除錯",
+      "responseWait": 60,
+      "prompt": "@samples/book-app-buggy/books_buggy.py 使用者回報搜尋 'The Hobbit' 沒有結果，即使它在資料中。請除錯原因。"
+    },
+    {
+      "chapter": "03-development-workflows",
+      "name": "test-gen-demo",
+      "description": "流程 4：測試產生 - 產生完整的 pytest 測試",
+      "responseWait": 60,
+      "prompt": "@samples/book-app-project/books.py 產生完整的 pytest 測試。包含以下測試：新增書籍、移除書籍、按標題尋找、按作者尋找、標記為已讀、空資料的邊緣案例"
+    },
+    {
+      "chapter": "03-development-workflows",
+      "name": "git-integration-demo",
+      "description": "流程 5：Git 整合 - 產生符合慣例的提交訊息",
+      "responseWait": 30,
+      "prompt": "為此產生符合慣例的提交訊息：$(git diff --staged)"
+    },
+    {
+      "chapter": "04-agents-custom-instructions",
+      "name": "python-reviewer-demo",
+      "description": "基於代理的 Python 程式碼檢閱，包含類型提示、錯誤處理與 PEP 8 合規性",
+      "prompt": "作為 Python 程式碼品質專家，檢閱 @samples/book-app-project/books.py 的類型提示、錯誤處理與 PEP 8 合規性"
+    },
+    {
+      "chapter": "05-skills",
+      "name": "list-skills-demo",
+      "description": "列出可用的斜線指令與技能",
+      "responseWait": 25,
+      "prompt": "有哪些可用的斜線指令與技能？請列出主要的幾個。"
+    },
+    {
+      "chapter": "05-skills",
+      "name": "skill-trigger-demo",
+      "description": "Copilot 偵測並觸發相符的技能",
+      "responseWait": 120,
+      "prompt": "檢查書籍收藏程式碼的品質問題"
+    },
+    {
+      "chapter": "06-mcp-servers",
+      "name": "mcp-status-demo",
+      "description": "使用 /mcp show 檢查已連線的 MCP 伺服器",
+      "responseWait": 25,
+      "prompt": "/mcp show"
+    },
+    {
+      "chapter": "06-mcp-servers",
+      "name": "mcp-workflow-demo",
+      "description": "包含問題與程式碼分析的多步驟 MCP 流程",
+      "prompts": [
+        "列出此儲存庫中的未結案問題",
+        { "text": "@samples/book-app-project/books.py 哪部分程式碼負責處理搜尋功能？", "responseWait": 20 },
+        { "text": "根據程式碼，針對搜尋功能建議改進方案", "responseWait": 30 }
+      ]
+    }
+  ]
+}
