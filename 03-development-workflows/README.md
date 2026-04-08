@@ -570,7 +570,7 @@ copilot
 
 <a id="workflow-5-git-integration"></a>
 <details>
-<summary><strong>工作流程 5：Git 整合</strong> - 提交訊息、PR 說明、/delegate 和 /diff</summary>
+<summary><strong>工作流程 5：Git 整合</strong> - 提交訊息、PR 說明、/pr、/delegate 和 /diff</summary>
 
 <img src="images/git-integration-swimlane-single.png" alt="Git 整合工作流程：暫存變更、產生訊息、提交、建立 PR。" width="800"/>
 
@@ -636,6 +636,16 @@ Include:
 - Breaking changes? (yes/no)"
 ```
 
+### 在互動模式下於目前分支使用 /pr
+
+如果你在 Copilot CLI 的互動模式中使用分支，可以使用 `/pr` 指令來處理提取請求。使用 `/pr` 可用於檢視 PR、建立新的 PR、修正現有 PR，或讓 Copilot CLI 根據分支狀態自動決定要採取的動作。
+
+```bash
+copilot
+
+> /pr [view|create|fix|auto]
+```
+
 ### 推送前審查
 
 在 `-p` 提示中使用 `git diff main..HEAD`，對所有分支變更進行快速的推送前檢查。
@@ -648,7 +658,7 @@ $(git diff main..HEAD)"
 
 ### 使用 /delegate 執行背景任務
 
-`/delegate` 指令將工作交給 GitHub 上的 Copilot 編碼代理程式。使用 `/delegate` 斜線指令 (或 `&` 捷徑) 將定義明確的任務分派給背景代理程式。
+`/delegate` 指令將工作交給 GitHub Copilot 雲端代理程式。使用 `/delegate` 斜線指令 (或 `&` 捷徑) 將定義明確的任務分派給背景代理程式。
 
 ```bash
 copilot

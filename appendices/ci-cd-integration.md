@@ -123,7 +123,7 @@ timeout 60 copilot --allow-all -p "Review @$file" --silent || echo "Review timed
 
 ## 替代方案：PR 審查機器人
 
-對於更複雜的審查工作流程，請考慮使用 Copilot 編碼代理程式：
+對於更複雜的審查工作流程，請考慮使用 GitHub Copilot 雲端代理程式：
 
 ```yaml
 # .github/workflows/copilot-agent-review.yml

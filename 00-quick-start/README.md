@@ -36,9 +36,9 @@ GitHub Copilot CLI 需要有效的 Copilot 訂閱。你可以在 [github.com/set
 
 > ⏱️ **時間預估**：安裝需要 2-5 分鐘。驗證需要另外 1-2 分鐘。
 
-### 建議方式：GitHub Codespaces (零設定)
+### GitHub Codespaces (零設定)
 
-如果你不想安裝任何先決條件，可以使用 GitHub Codespaces，它已經準備好 GitHub Copilot CLI (你需要登入)，並預先安裝了 Python 3.13、pytest 和 GitHub CLI。
+如果你不想安裝任何先決條件，可以使用 GitHub Codespaces，它已經準備好 GitHub Copilot CLI (你需要登入)，預先安裝了 Python 和 pytest。
 
 1. 將 [此儲存庫分叉 (Fork)](https://github.com/github/copilot-cli-for-beginners/fork) 到你的 GitHub 帳號
 2. 選擇 **Code** > **Codespaces** > **Create codespace on main**
@@ -47,40 +47,45 @@ GitHub Copilot CLI 需要有效的 Copilot 訂閱。你可以在 [github.com/set
 
 > 💡 **在 Codespace 中驗證**：執行 `cd samples/book-app-project && python book_app.py help` 以確認 Python 和範例應用程式運作正常。
 
-### 替代方式：本機安裝
+### 本機安裝
 
-> 💡 **不確定選擇哪一個？** 如果你安裝了 Node.js，請使用 `npm`。否則，請選擇適合你系統的選項。
+如果你想在本機執行 Copilot CLI 並搭配課程範例，請按照下列步驟。
 
-> 💡 **展示需要 Python**：本課程使用 Python 範例應用程式。如果你在本地工作，請在開始展示前安裝 [Python 3.10+](https://www.python.org/downloads/)。
+1. 將儲存庫複製到本機以取得課程範例：
 
-> **注意：** 雖然整個課程中顯示的主要範例使用 Python (`samples/book-app-project`)，但如果你偏好使用這些語言，也提供 JavaScript (`samples/book-app-project-js`) 和 C# (`samples/book-app-project-cs`) 版本。每個範例都有一個 README，其中包含在該語言中執行應用程式的說明。
+    ```bash
+    git clone https://github.com/github/copilot-cli-for-beginners
+    cd copilot-cli-for-beginners
+    ```
 
-選擇適合你系統的方法：
+2. 使用下列其中一種方式安裝 Copilot CLI：
 
-### 所有平台 (npm)
+    > 💡 **不確定要選哪一種？** 如果你已安裝 Node.js，請使用 `npm`。否則選擇符合你系統的安裝方式。
 
-```bash
-# 如果你安裝了 Node.js，這是取得 CLI 的快速方法
-npm install -g @github/copilot
-```
+    ### 所有平台（npm）
 
-### macOS/Linux (Homebrew)
+    ```bash
+    # 如果你已安裝 Node.js，這是快速取得 CLI 的方式
+    npm install -g @github/copilot
+    ```
 
-```bash
-brew install copilot-cli
-```
+    ### macOS／Linux（Homebrew）
 
-### Windows (WinGet)
+    ```bash
+    brew install copilot-cli
+    ```
 
-```bash
-winget install GitHub.Copilot
-```
+    ### Windows（WinGet）
 
-### macOS/Linux (安裝指令碼)
+    ```bash
+    winget install GitHub.Copilot
+    ```
 
-```bash
-curl -fsSL https://gh.io/copilot-install | bash
-```
+    ### macOS／Linux（安裝腳本）
+
+    ```bash
+    curl -fsSL https://gh.io/copilot-install | bash
+    ```
 
 ---
 
@@ -153,7 +158,7 @@ copilot
 
 課程提供了一個範例應用程式，你將在整個課程中使用 CLI 探索並改進它 *(你可以在 /samples/book-app-project 中查看此程式碼)*。在開始之前，請檢查 *Python 圖書收藏終端機應用程式* 是否運作正常。根據你的系統執行 `python` 或 `python3`。
 
-> **注意：** 雖然整個課程中顯示的主要範例使用 Python (`samples/book-app-project`)，但如果你偏好使用這些語言，也提供 JavaScript (`samples/book-app-project-js`) 和 C# (`samples/book-app-project-cs`) 版本。每個範例都有一個 README，其中包含在該語言中執行應用程式的說明。
+> **注意：** 本課程中的主要範例使用 Python (`samples/book-app-project`)，如果你選擇此項目，請在本機安裝 [Python 3.10+](https://www.python.org/downloads/)（Codespace 已預先安裝）。若你偏好其他語言，也提供 JavaScript (`samples/book-app-project-js`) 與 C# (`samples/book-app-project-cs`) 版本。每個範例資料夾皆包含 README，說明如何在該語言環境中執行應用程式。
 
 ```bash
 cd samples/book-app-project

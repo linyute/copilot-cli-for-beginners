@@ -2,7 +2,7 @@
 
 > **如果 Copilot 可以自動套用你團隊的最佳實作，而不需要你每次都解釋，會怎樣？**
 
-在本章中，你將學習代理程式技能 (Agent Skills)：當與你的任務相關時，Copilot 會自動載入的指令資料夾。代理程式改變了 Copilot 的*思考方式*，而技能則教導 Copilot *完成任務的具體方法*。你將建立一個安全稽核技能，每當你詢問安全問題時 Copilot 都會套用它；建立團隊標準的審查標準，以確保一致的程式碼品質；並瞭解技能如何在 Copilot CLI、VS Code 和 Copilot 編碼代理程式中運作。
+在本章中，你將學習代理程式技能 (Agent Skills)：當與你的任務相關時，Copilot 會自動載入的指令資料夾。代理程式改變了 Copilot 的*思考方式*，而技能則教導 Copilot *完成任務的具體方法*。你將建立一個安全稽核技能，每當你詢問安全問題時 Copilot 都會套用它；建立團隊標準的審查標準，以確保一致的程式碼品質；並瞭解技能如何在 Copilot CLI、VS Code 和 GitHub Copilot 雲端代理程式中運作。
 
 
 ## 🎯 學習目標
@@ -54,7 +54,10 @@
    copilot
    > /skills list
    ```
-   這會顯示 Copilot 在你的專案和個人資料夾中找到的所有技能。
+
+   這會顯示 Copilot 能找到的所有技能，包括隨 CLI 本身一起提供的 **內建技能**，以及來自你專案和個人資料夾的技能。
+
+   > 💡 **內建技能**：Copilot CLI 隨附預先安裝的技能。例如，`customizing-copilot-cloud-agents-environment` 技能提供了一份用於自訂 Copilot 雲端代理程式環境的指南。你不需要建立或安裝任何東西即可使用。執行 `/skills list` 可查看可用技能。
 
 2. **查看真實的技能檔案：** 查看我們提供的 [code-checklist SKILL.md](../.github/skills/code-checklist/SKILL.md) 以瞭解其模式。它只是 YAML Frontmatter 加上 markdown 指示。
 

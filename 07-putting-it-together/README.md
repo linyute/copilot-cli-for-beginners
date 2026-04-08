@@ -92,7 +92,10 @@ copilot
 # 審查變更
 > /review
 
-# 如果審查通過，產生 PR (使用課程前面介紹的 GitHub MCP)
+# 若審查通過，使用 /pr 在目前分支上對 pull request 進行操作
+> /pr [view|create|fix|auto]
+
+# 或以自然語句要求 Copilot 從終端機協助草擬
 > Create a pull request titled "Feature: Add list unread books command"
 ```
 
