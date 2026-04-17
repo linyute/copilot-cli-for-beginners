@@ -75,7 +75,7 @@ MCP 伺服器：
 
 > 💡 **只看到 GitHub 伺服器？** 這是正常的！如果你尚未新增任何額外的 MCP 伺服器，GitHub 是唯一列出的。你將在下一節中新增更多。
 
-> 📚 **想查看所有 `/mcp` 指令嗎？** 還有用於新增、編輯、啟用和刪除伺服器的額外指令。請參閱本章結尾處的[完整指令參考](#-其他-mcp-指令)。
+> 📚 **想查看所有 MCP 管理指令嗎？** 你可以在聊天中使用 `/mcp` 斜線指令來管理伺服器，或直接在終端機使用 `copilot mcp`。請參閱本章末的 [完整指令參考](#-additional-mcp-commands)。
 
 <details>
 <summary>🎬 看看它的實際運作！</summary>
@@ -119,13 +119,31 @@ MCP 讓 Copilot 意識到你實際的開發環境。
 
 <img src="images/configuring-mcp-servers.png" alt="雙手在專業混音器上調整旋鈕和滑桿，代表 MCP 伺服器設定" width="800"/>
 
-既然你已經看過 MCP 的實際運作，讓我們來設定額外的伺服器。本節涵蓋設定檔格式以及如何新增新伺服器。
+現在你已經看到 MCP 的實際運作，接下來我們來設定額外的伺服器。你可以用兩種方式新增伺服器：**從內建註冊中心安裝**（最簡單 — 在 CLI 中有引導式設定）或**手動編輯設定檔**（較具彈性）。如果不確定要選哪一種，從註冊中心開始。
+
+---
+
+## 從註冊中心安裝 MCP 伺服器
+
+CLI 內建一個 MCP 伺服器註冊中心，讓你發現並安裝熱門伺服器，並提供引導式設定 — 無需編輯 JSON。
+
+```bash
+copilot
+
+> /mcp search
+```
+
+Copilot 會開啟互動式選擇器，顯示可用的伺服器。選擇後，CLI 會引導你完成任何必要的設定（如 API 金鑰、路徑等），並自動將它新增到你的設定檔中。
+
+> 💡 **為何使用註冊中心？** 這是最簡單的入門方式 — 你不需要知道 npm 套件名稱、命令參數或 JSON 結構，CLI 會替你處理這些細節。
 
 ---
 
 ## MCP 設定檔
 
-MCP 伺服器在 `~/.copilot/mcp-config.json` (使用者級別，適用於所有專案) 或 `.vscode/mcp.json` (專案級別，僅適用於目前工作區) 中設定。
+MCP 伺服器的設定放在 `~/.copilot/mcp-config.json`（使用者層級，適用於所有專案）或 `.mcp.json`（專案層級，放在專案根目錄）。如果你剛剛使用了 `/mcp search`，CLI 會已為你建立或更新此檔案，但了解其格式以便自訂仍然很有用。
+
+> ⚠️ **注意**：`.vscode/mcp.json` 不再被支援為 MCP 設定來源。如果你有既有的 `.vscode/mcp.json`，請將它移轉到專案根目錄的 `.mcp.json`。CLI 偵測到舊的設定檔時會顯示移轉提示。
 
 ```json
 {
@@ -333,7 +351,7 @@ copilot
 }
 ```
 
-將此儲存為 `~/.copilot/mcp-config.json` 以實現全域存取，或儲存為 `.vscode/mcp.json` 用於專案特定設定。
+將此儲存為 `~/.copilot/mcp-config.json` 以供全域存取，或將其儲存為專案根目錄下的 `.mcp.json` 以用於專案特定的設定。
 
 ---
 
@@ -840,7 +858,7 @@ copilot
 | 錯誤 | 會發生什麼 | 修正 |
 |---------|--------------|-----|
 | 不知道 GitHub MCP 是內建的 | 嘗試手動安裝/設定它 | GitHub MCP 已預設包含。只需嘗試：「List the recent commits in this repo」 |
-| 在錯誤位置尋找設定 | 找不到或無法編輯 MCP 設定 | 使用者級別設定位於 `~/.copilot/mcp-config.json`，專案級別位於 `.vscode/mcp.json` |
+| 尋找設定檔位置錯誤 | 無法找到或編輯 MCP 設定 | 使用者層級的設定位於 `~/.copilot/mcp-config.json`，專案層級的設定位於專案根目錄的 `.mcp.json` |
 | 設定檔中的 JSON 無效 | MCP 伺服器載入失敗 | 使用 `/mcp show` 檢查設定；驗證 JSON 語法 |
 | 忘記驗證 MCP 伺服器 | 「驗證失敗」錯誤 | 某些 MCP 需要單獨的驗證。請檢查每台伺服器的要求 |
 
@@ -883,20 +901,41 @@ copilot
 ---
 
 <details>
-<summary>📚 <strong>其他 <code>/mcp</code> 指令</strong> (點擊展開)</summary>
-<a id="-其他-mcp-指令"></a>
+<summary>📚 <strong>其他 MCP 指令</strong>（點擊展開）</summary>
+<a id="-additional-mcp-commands"></a>
 
-除了 `/mcp show` 之外，還有幾個用於管理 MCP 伺服器的指令：
+你可以用兩種方式管理 MCP 伺服器：在聊天室內使用 **斜線指令（slash commands）**，或直接在終端機使用 **`copilot mcp` 指令**（不需要開啟聊天室）。
 
-| 指令 | 作用 |
-|---------|--------------|
+### 選項 1：斜線指令（在聊天室內）
+
+當你已經在 `copilot` 內時可使用：
+
+| 指令 | 功能 |
+|------|------|
 | `/mcp show` | 顯示所有已設定的 MCP 伺服器及其狀態 |
-| `/mcp add` | 用於新增伺服器的互動式設定 |
-| `/mcp edit <伺服器名稱>` | 編輯現有的伺服器設定 |
-| `/mcp enable <伺服器名稱>` | 啟用被停用的伺服器 |
-| `/mcp disable <伺服器名稱>` | 暫時停用伺服器 |
-| `/mcp delete <伺服器名稱>` | 永久移除伺服器 |
-| `/mcp auth <server-name>` | 針對使用 OAuth 的 MCP 伺服器重新驗證（例如：切換帳戶後） |
+| `/mcp add` | 互動式新增伺服器設定 |
+| `/mcp edit <server-name>` | 編輯現有伺服器設定 |
+| `/mcp enable <server-name>` | 啟用伺服器（會跨會話保留） |
+| `/mcp disable <server-name>` | 停用伺服器（會跨會話保留） |
+| `/mcp delete <server-name>` | 永久移除伺服器 |
+| `/mcp auth <server-name>` | 重新驗證使用 OAuth 的 MCP 伺服器（例如：切換帳號後） |
+
+### 選項 2：在終端機使用 `copilot mcp` 指令
+
+你也可以直接在終端機管理 MCP 伺服器，無需先開啟聊天室：
+
+```bash
+# 列出所有已設定的 MCP 伺服器
+copilot mcp list
+
+# 啟用伺服器
+copilot mcp enable filesystem
+
+# 停用伺服器
+copilot mcp disable context7
+```
+
+> 💡 **什麼時候用哪一個？** 當你已在聊天室時，使用 `/mcp` 斜線指令；如果想在啟動會話前快速檢查或更改伺服器設定，則在終端機使用 `copilot mcp`。
 
 在本課程的大部分內容中，你只需要 `/mcp show`。隨著時間推移，當你管理更多伺服器時，其他指令會變得很實用。
 
@@ -912,7 +951,7 @@ copilot
 2. **GitHub MCP 是內建的** - 不需要設定，只需 `/login`
 3. **Filesystem 和 Context7** 透過 `~/.copilot/mcp-config.json` 設定
 4. **多伺服器工作流程** 在單個階段中結合來自多個來源的資料
-5. **檢查伺服器狀態** 使用 `/mcp show` (還有其他管理伺服器的指令可用)
+5. **以兩種方式管理伺服器**：在聊天室內使用 `/mcp` 斜線指令，或在終端機使用 `copilot mcp`。
 6. **自訂伺服器** 讓你連接任何 API (選修，在附錄指南中介紹)
 
 > 📋 **快速參考**：查看 [GitHub Copilot CLI 指令參考](https://docs.github.com/en/copilot/reference/cli-command-reference) 以獲取指令和快速鍵的完整清單。

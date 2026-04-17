@@ -272,14 +272,20 @@ copilot
 
 **最適合**：需要在執行前審查方法的複雜任務。類似於在旅行前使用 GPS 規劃路線。
 
-計畫模式可協助你在編寫任何程式碼之前建立逐步計畫。使用 `/plan` 指令或按下 **Shift+Tab** 以循環切換至計畫模式：
-
-> 💡 **提示**：**Shift+Tab** 可在模式之間切換：互動 → 計畫 → Autopilot。在互動階段期間隨時按下它即可切換模式而無需輸入指令。
+計畫模式可協助你在編寫任何程式碼之前建立逐步計畫。使用 `/plan` 指令，按下 **Shift+Tab** 以循環切換至計畫模式：
 
 ```bash
 copilot
 
 > /plan Add a "mark as read" command to the book app
+```
+
+> 💡 **提示**：**Shift+Tab** 可在模式之間切換：互動 → 計畫 → Autopilot。在互動階段期間隨時按下它即可切換模式而無需輸入指令。
+
+您也可以使用 `--plan` 旗標直接以計畫模式啟動 Copilot CLI：
+
+```bash
+copilot --plan
 ```
 
 **計畫模式輸出**：(你的輸出可能不同)
@@ -312,7 +318,7 @@ copilot
 
 > 💡 **想要更複雜的東西嗎？** 嘗試：`/plan Add search and filter capabilities to the book app`。計畫模式可從簡單的功能擴展到完整的應用程式。
 
-> 📚 **Autopilot 模式**：你可能已經注意到 Shift+Tab 會循環切換到名為 **Autopilot** 的第三種模式。在 Autopilot 模式下，Copilot 會完成整個計畫，而無需在每個步驟後等待你的輸入——就像將任務交給同事並說「完成後告訴我」一樣。典型的流程是計畫 → 接受 → Autopilot，這意味著你首先需要擅長撰寫計畫。熟悉互動和計畫模式後，請在準備就緒時查看 [官方文件](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot)。
+> 📚 **Autopilot 模式**：你可能注意到 Shift+Tab 會在第三種名為 **Autopilot** 的模式之間切換。在 Autopilot 模式中，Copilot 會依照整個計畫自動執行，而不會在每個步驟後等待你的輸入──就像把任務交給同事並說「完成了再告訴我」。典型工作流程為 計畫 → 接受 → Autopilot，這表示你需要先擅長撰寫計畫。你也可以使用 `copilot --autopilot` 直接啟動 Autopilot。請先熟悉 Interactive 與 Plan 模式，準備好後再參閱 [官方文件](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot)。
 
 ---
 
@@ -357,16 +363,19 @@ copilot --allow-all -p "Review @myfile.py for issues"
 
 ## 基本斜線命令
 
-這些命令在互動模式下使用。**先從這六個開始** — 它們涵蓋了 90% 的日常使用情境：
+這些命令很適合在剛開始使用 Copilot CLI 時學習：
 
 | 命令 | 功能 | 何時使用 |
 |------|------|----------|
+| `/ask` | 快速詢問問題而不會影響對話紀錄 | 當你想要快速得到答案且不想打斷目前工作時 |
 | `/clear` | 清除對話並重新開始 | 切換主題時 |
 | `/help` | 顯示所有可用命令 | 忘記命令時 |
 | `/model` | 顯示或切換 AI 模型 | 想變更使用的模型時 |
 | `/plan` | 在寫程式前規劃工作流程 | 需要處理較複雜的功能時 |
 | `/research` | 使用 GitHub 與網路資源進行深入研究 | 需要事前調查時 |
 | `/exit` | 結束會話 | 完成工作時 |
+
+> 💡 **`/ask` 與一般對話的差異**：通常你傳送的每則訊息都會成為對話的一部分並影響後續回應。`/ask` 是一個「不留在對話紀錄中」的捷徑——適合用於像 `/ask What does YAML mean?` 這類一次性問題，而不會污染會話內容。
 
 就這些就足夠開始了！熟悉後你可以再探索更多命令。
 
@@ -382,6 +391,7 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | 命令 | 功能 |
 |------|------|
 | `/agent` | 瀏覽並選擇可用的代理（agent） |
+| `/env` | 顯示已載入的環境詳情 — 目前有哪些指示、MCP 伺服器、技能、代理與外掛正在啟用 |
 | `/init` | 為你的儲存庫初始化 Copilot 指示 |
 | `/mcp` | 管理 MCP 伺服器設定 |
 | `/skills` | 管理可增強能力的技能 |
@@ -413,10 +423,11 @@ copilot --allow-all -p "Review @myfile.py for issues"
 |------|------|
 | `/add-dir <directory>` | 新增目錄至允許清單 |
 | `/allow-all [on|off|show]` | 自動核准所有權限提示；使用 `on` 啟用、`off` 停用、`show` 查詢狀態 |
+| `/yolo` | `/allow-all on` 的快速別名 — 自動核准所有權限提示 |
 | `/cwd`, `/cd [directory]` | 檢視或變更工作目錄 |
 | `/list-dirs` | 顯示所有允許的目錄 |
 
-> ⚠️ **小心使用**：`/allow-all` 會跳過確認提示。對受信任的專案很方便，但對不受信任的程式碼要格外謹慎。
+> ⚠️ **請謹慎使用**：`/allow-all` 與 `/yolo` 會跳過確認提示。適用於你信任的專案；處理不受信任的程式碼時務必小心。
 
 ### 會話管理
 
@@ -525,7 +536,7 @@ for file in samples/book-app-project/*.py; do
 done
 ```
 
-**PowerShell (Windows):**
+**PowerShell（Windows）：**
 
 ```powershell
 # 審查圖書應用程式中的所有 Python 檔案
@@ -545,6 +556,28 @@ Get-ChildItem samples/book-app-project/*.py | ForEach-Object {
 2. **計畫模式挑戰**：執行 `/plan Add rating and review features to the book app`。仔細閱讀計畫。它是否有意義？
 
 3. **程式化挑戰**：執行 `copilot --allow-all -p "List all functions in @samples/book-app-project/book_app.py and describe what each does"`。它是否第一次嘗試就奏效？
+
+---
+
+## 💡 提示：從網頁或行動裝置控制你的 CLI 工作階段
+
+GitHub Copilot CLI 支援 **遠端工作階段**，讓你可以從網頁瀏覽器（桌面或行動裝置）或 GitHub Mobile 應用程式監看並與正在執行的 CLI 工作階段互動，而不需直接在終端機上操作。
+
+使用 `--remote` 參數來啟動遠端工作階段：
+
+```bash
+copilot --remote
+```
+
+Copilot CLI 會顯示一個連結並提供 QR 碼。打開該連結（手機或桌面瀏覽器分頁）即可即時觀看工作階段、發送後續提示、檢視計畫，並遠端引導代理。工作階段為使用者專屬，因此你只能存取自己的 Copilot CLI 工作階段。
+
+你也可以在現有的互動工作階段內隨時啟用遠端存取：
+
+```
+> /remote
+```
+
+有關遠端工作階段的更多細節，請參閱 [Copilot CLI 文件](https://docs.github.com/copilot/how-tos/copilot-cli/steer-remotely)。
 
 ---
 
@@ -624,7 +657,7 @@ Get-ChildItem samples/book-app-project/*.py | ForEach-Object {
 1. **互動模式**用於探索和迭代——內容會向前傳遞。這就像與一個記得你到目前為止所說內容的人交談。
 2. **計畫模式**通常用於更複雜的任務。在實作前進行審查。
 3. **程式化模式**用於自動化。不需要互動。
-4. **基本指令** (`/help`, `/clear`, `/plan`, `/research`, `/model`, `/exit`) 涵蓋了大部分日常使用。
+4. **基本指令** (`/ask`, `/help`, `/clear`, `/plan`, `/research`, `/model`, `/exit`) 涵蓋了大部分日常使用。
 
 > 📋 **快速參考**：查看 [GitHub Copilot CLI 指令參考](https://docs.github.com/en/copilot/reference/cli-command-reference) 以獲取指令和快速鍵的完整清單。
 
