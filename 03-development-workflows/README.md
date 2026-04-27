@@ -723,7 +723,7 @@ copilot
 > Users report: 'Finding books by author name doesn't work for partial names'
 > @samples/book-app-project/books.py Analyze and identify the likely cause
 
-# 2. 除錯問題 (在同一個階段中繼續)
+# 2. 除錯問題並修正 (在同一個階段中繼續)
 > Based on the analysis, show me the find_by_author function and explain the issue
 
 > Fix the find_by_author function to handle partial name matches
@@ -735,21 +735,35 @@ copilot
 > - Case-insensitive matching
 > - Author name not found
 
-# 4. 產生提交訊息
+# 退出互動會話
+
+> /exit
+
+# 4. 執行 git add
+
+# 將變更加入暫存，讓 git diff --staged 有東西可用
+git add .
+
+# 5. 產生提交訊息
 copilot -p "Generate commit message for: $(git diff --staged)"
 
-# 輸出："fix(books): support partial author name search"
+# 範例輸出："fix(books): 支援部分作者名稱搜尋"
+
+# 6. 提交變更（可選）
+
+git commit -m "<paste generated message>"
 ```
 
 ### 漏洞修正工作流程摘要
 
 | 步驟 | 動作 | Copilot 指令 |
 |------|--------|-----------------|
-| 1 | 理解漏洞 | `> [描述漏洞] @relevant-file.py Analyze the likely cause` |
-| 2 | 取得詳細分析 | `> Show me the function and explain the issue` |
-| 3 | 實作修正 | `> Fix the [特定問題]` |
-| 4 | 產生測試 | `> Generate tests for [特定情境]` |
-| 5 | 提交 | `copilot -p "Generate commit message for: $(git diff --staged)"` |
+| 1 | Understand the bug | `> [describe bug] @relevant-file.py Analyze the likely cause` |
+| 2 | Analysis and fix | `> Show me the function and fix the issue` |
+| 3 | Generate tests | `> Generate tests for [specific scenarios]` |
+| 4 | Stage changes | `git add .` |
+| 5 | Generate commit message | `copilot -p "Generate commit message for: $(git diff --staged)"` |
+| 6 | Commit changes| `git commit -m "<paste generated message>"` |
 
 ---
 

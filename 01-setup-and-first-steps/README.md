@@ -444,6 +444,13 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | `/session` | 顯示會話資訊與工作目錄摘要 |
 | `/share` | 匯出會話為 Markdown 檔、GitHub gist，或自包含的 HTML 檔 |
 
+### 顯示
+
+| 命令 | 功能 |
+|------|------|
+| `/statusline`（或 `/footer`） | 自訂會話底部狀態列上要顯示的項目（目錄、分支、effort、上下文視窗、配額） |
+| `/theme` | 檢視或設定終端機主題 |
+
 ### 求助與回饋
 
 | 命令 | 功能 |
@@ -451,7 +458,6 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | `/changelog` | 顯示 CLI 版本變更記錄 |
 | `/feedback` | 向 GitHub 提交回饋 |
 | `/help` | 顯示所有可用命令 |
-| `/theme` | 檢視或設定終端機主題 |
 
 ### 快速 Shell 指令
 
@@ -479,6 +485,8 @@ copilot
 ```
 
 > 💡 **提示**：某些模型比其他模型消耗更多的「進階請求」。標示為 **1x** 的模型（例如 Claude Sonnet 4.5）通常是良好的預設選擇：功能強大且效率高。倍率較高的模型會更快耗盡你的進階請求額度，請在真正需要時再使用。
+
+> 💡 **不確定要選哪個模型嗎？** 在模型選擇器中選擇 **`Auto`**，讓 Copilot 為每次會話自動挑選最佳可用模型。這是很好的預設，特別適合剛開始使用且不想煩惱模型選擇的人。
 
 </details>
 

@@ -561,22 +561,22 @@ copilot plugin marketplace update
 
 - **[Awesome Copilot](https://github.com/github/awesome-copilot)** - 官方 GitHub Copilot 資源，包括技能文件和範例
 
-### 手動安裝社群技能
+### 使用 GitHub CLI 安裝社群技能
 
-如果你在 GitHub 儲存庫中找到一項技能，請將其資料夾複製到你的技能目錄中：
+從 GitHub 儲存庫安裝技能最簡單的方法是使用 `gh skill install` 指令（需要 [GitHub CLI v2.90.0+](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)）：
 
 ```bash
-# 複製 awesome-copilot 儲存庫
-git clone https://github.com/github/awesome-copilot.git /tmp/awesome-copilot
+# 瀏覽並互動式選擇 awesome-copilot 中的技能
+gh skill install github/awesome-copilot
 
-# 將特定技能複製到你的專案
-cp -r /tmp/awesome-copilot/skills/code-checklist .github/skills/
+# 或者直接安裝特定技能
+gh skill install github/awesome-copilot code-checklist
 
-# 或供所有專案個人使用
-cp -r /tmp/awesome-copilot/skills/code-checklist ~/.copilot/skills/
+# 在使用者範圍中安裝（適用於所有專案）
+gh skill install github/awesome-copilot code-checklist --scope user
 ```
 
-> ⚠️ **安裝前請審查**：在將技能複製到你的專案之前，請務必閱讀技能的 `SKILL.md`。技能控制著 Copilot 的行為，惡意技能可能會指示它執行有害指令或以意外方式修改程式碼。
+> ⚠️ **安裝前請審查**：安裝前務必閱讀技能的 `SKILL.md`。技能會控制 Copilot 的行為，惡意技能可能會指示執行有害命令或意外修改程式碼。
 
 ---
 
