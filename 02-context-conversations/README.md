@@ -304,12 +304,15 @@ copilot --continue
 copilot --resume
 
 # 或透過 ID 恢復特定階段
-copilot --resume abc123
+copilot --resume=abc123
+
+# 或透過你為該階段命名的名稱來恢復
+copilot --resume="my book app review"
 ```
 
 > 💡 **我該如何找到階段 ID？** 你不需要背誦它們。執行不帶 ID 的 `copilot --resume` 會顯示先前階段的互動式清單，包括它們的名稱、ID 以及上次活動的時間。只需挑選你想要的一個。
 >
-> **那多個終端機呢？** 每個終端機視窗都是其自己的階段，擁有自己的內容。如果你在三個終端機中開啟了 Copilot CLI，那就是三個獨立的階段。從任何終端機執行 `--resume` 都可以讓你瀏覽所有這些階段。`--continue` 旗標會抓取最近關閉的那個階段，無論它在哪個終端機中。
+> **多個終端機呢？** 每個終端機視窗都是獨立的工作階段，並有自己的上下文。如果你在三個終端機中開啟 Copilot CLI，就會有三個獨立的工作階段。從任何終端機執行 `--resume` 都可以瀏覽所有工作階段。`--continue` 會優先取得目前工作目錄的工作階段；如果該處沒有，則會選擇最近使用的工作階段。
 >
 > **我可以在不重新啟動的情況下切換階段嗎？** 可以。在活動階段中使用 `/resume` 斜線指令：
 > ```
@@ -319,13 +322,33 @@ copilot --resume abc123
 
 ### 組織你的階段
 
-給階段有意義的名稱，以便日後尋找：
+為階段指定有意義的名稱，讓你日後能夠找到它們。你可以在啟動階段時為其命名，或在階段內的任何時候重新命名：
 
 ```bash
+# 啟動時為階段命名
+copilot --name book-app-review
+
+# 或在階段內重新命名目前會話
 copilot
 
 > /rename book-app-review
 # 階段已重新命名以方便識別
+```
+
+一旦為階段命名，您可以直接以名稱恢復，而無需瀏覽清單：
+
+```bash
+copilot --resume=book-app-review
+```
+
+要清除不再需要的階段，請在會話內使用 `/session delete`：
+
+```bash
+copilot
+
+> /session delete            # 刪除目前會話
+> /session delete abc123     # 以 ID 刪除特定會話
+> /session delete-all        # 刪除所有會話（請謹慎使用！）
 ```
 
 ### 檢查與管理內容
@@ -363,10 +386,9 @@ copilot
 想像一下跨越多天的這個工作流程：
 
 ```bash
-# 週一：開始圖書應用程式審查
-copilot
+# 週一：從一開始就以名稱啟動圖書應用程式審查
+copilot --name book-app-review
 
-> /rename book-app-review
 > @samples/book-app-project/books.py
 > Review and number all code quality issues
 
@@ -384,8 +406,8 @@ copilot
 ```
 
 ```bash
-# 週三：準確地從上次停下的地方恢復
-copilot --continue
+# 週三：以名稱精確恢復你離開的位置
+copilot --resume=book-app-review
 
 > What issues remain unfixed from our book app review?
 
@@ -410,7 +432,7 @@ copilot --continue
 
 ---
 
-**🎉 你現在掌握了基礎知識！** `@` 語法、階段管理 (`--continue`/`--resume`/`/rename`) 和內容指令 (`/context`/`/clear`) 已足以讓你極具生產力。下方的內容都是可選的。當你準備好時再回來閱讀。
+**🎉 你已掌握基本要領！** `@` 語法、會話管理（`--name`/`--continue`/`--resume`/`/rename`）以及上下文指令（`/context`/`/clear`）足以大幅提升生產力。以下內容為選修項目，隨時回來閱讀。
 
 ---
 
@@ -858,7 +880,7 @@ copilot --add-dir /path/to/directory
 
 1. **`@` 語法** 為 Copilot CLI 提供關於檔案、目錄和圖片的內容
 2. **多輪對話** 隨著內容的累積而相互建立
-3. **階段自動儲存**：使用 `--continue` 或 `--resume` 從你停下的地方繼續
+3. **階段會自動儲存**：啟動時使用 `--name` 命名，使用 `--resume=<name>` 以名稱恢復，或使用 `--continue` 接續最近的階段
 4. **內容視窗** 有限制：使用 `/context`、`/clear` 和 `/compact` 管理它們
 5. **權限旗標** (`--add-dir`, `--allow-all`) 控制多目錄存取。請明智地使用它們！
 6. **圖片引用** (`@screenshot.png`) 幫助視覺化地對 UI 問題進行除錯
