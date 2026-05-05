@@ -87,6 +87,31 @@ GitHub Copilot CLI 需要有效的 Copilot 訂閱。你可以在 [github.com/set
     curl -fsSL https://gh.io/copilot-install | bash
     ```
 
+<details>
+<summary>可選：啟用 shell 補全</summary>
+
+Shell 補全允許你按下 **Tab** 鍵來補完 `copilot` 子指令、命令選項，以及部分選項值。這是可選功能，但當你熟悉 CLI 後會很方便。
+
+Copilot CLI 目前支援 Bash、Zsh 與 Fish 的補全腳本：
+
+```shell
+# Bash，僅針對當前工作階段
+source <(copilot completion bash)
+
+# Bash，於 Linux 上持久生效
+copilot completion bash | sudo tee /etc/bash_completion.d/copilot
+
+# Zsh
+copilot completion zsh > "${fpath[1]}/_copilot"
+
+# Fish
+copilot completion fish > ~/.config/fish/completions/copilot.fish
+```
+
+在新增持久性補全後請重新啟動你的 shell。PowerShell 可用於在 Windows 上執行 Copilot CLI，但 `copilot completion` 目前僅支援 Bash、Zsh 與 Fish。
+
+</details>
+
 ---
 
 ## 驗證

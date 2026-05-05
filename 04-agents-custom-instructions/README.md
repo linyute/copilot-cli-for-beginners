@@ -430,7 +430,7 @@ Copilot 會掃描你的專案並建立量身定制的指示檔案。你之後可
 
 `AGENTS.md` 是建議的格式。它是一個[開放標準 (open standard)](https://agents.md/)，適用於 Copilot 和其他 AI 編碼工具。將其放在你的儲存庫根目錄中，Copilot 就會自動讀取它。此專案自己的 [AGENTS.md](../AGENTS.md) 也是一個實際範例。
 
-一個典型的 `AGENTS.md` 描述了你的專案內容、程式碼風格、安全要求和測試標準。使用 `/init` 產生一個，或按照我們範例檔案中的模式撰寫自己的檔案。
+一般的 `AGENTS.md` 會描述你的專案背景、程式碼風格、安全需求與測試標準。請依我們範例檔案的範式撰寫你自己的 `AGENTS.md`。
 
 ### 自訂指示檔案 (.instructions.md)
 
