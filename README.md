@@ -23,12 +23,6 @@ GitHub Copilot CLI 將 AI 協助直接帶入你的終端機。你無需切換到
 - 偏好鍵盤驅動工作流程而非 IDE 整合的**終端機使用者**
 - 尋求將 AI 輔助程式碼審查與開發實作**標準化之團隊**
 
-<a href="https://aka.ms/githubcopilotdevdays" target="_blank">
-  <picture>
-    <img src="./images/copilot-dev-days.png" alt="GitHub Copilot Dev Days - 尋找或舉辦活動" width="100%" />
-  </picture>
-</a>
-
 ## 🎯 你將學到什麼
 
 這門動手實作課程將帶領你從零開始，掌握 GitHub Copilot CLI 的高效用法。你將在所有章節中使用單個 Python 圖書收藏應用程式，透過 AI 輔助的工作流程逐步改進它。到最後，你將能自信地在終端機中使用 AI 來審查程式碼、產生測試、對問題進行除錯並自動化工作流程。

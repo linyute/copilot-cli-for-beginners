@@ -446,7 +446,31 @@ Copilot 會掃描你的專案並建立量身定制的指示檔案。你之後可
 
 > 💡 **注意**：指示檔案適用於任何語言。此範例使用 Python 以配合我們的課程專案，但你可以為 TypeScript、Go、Rust 或團隊使用的任何技術建立類似的檔案。
 
-**尋找社群指示檔案**：瀏覽 [github/awesome-copilot](https://github.com/github/awesome-copilot) 獲取預製的指示檔案，涵蓋 .NET、Angular、Azure、Python、Docker 和更多技術。
+#### 使用 `applyTo` 範圍化指示
+
+預設情況下，指示檔會套用到所有對話。若要將其限制為特定檔案類型，請在 YAML 前置欄（檔案最上方以 `---` 標記包圍的區塊）中新增 `applyTo` 欄位：
+
+```markdown
+---
+applyTo: "**/*.py"
+---
+# Python 標準
+始終遵循 PEP 8 風格慣例。
+在所有函式簽名中使用型別註記。
+```
+
+使用 `applyTo: "**/*.py"` 時，Copilot 只會在你處理 Python 檔案時載入該指示檔。針對 Python 的風格指示不會在處理例如 Dockerfile 或 SQL 查詢時造成干擾。
+
+以下是一些常見的模式：
+
+| `applyTo` 值 | 適用時機 |
+|---|---|
+| `"**/*.py"` | 任何 Python 檔案 |
+| `"**/*.{ts,tsx}"` | TypeScript 與 TSX 檔案 |
+| `"tests/**"` | `tests/` 資料夾內的任何檔案 |
+| (無前置欄) | 每一次對話 — 預設 |
+
+> 💡 提示：將 glob 模式以引號包起（例如 `"**/*.py"`），可確保在各作業系統與 shell 中皆能正確解析。
 
 ### 停用自訂指示
 
