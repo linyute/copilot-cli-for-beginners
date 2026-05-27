@@ -351,6 +351,27 @@ copilot
 > /session delete-all        # 刪除所有會話（請謹慎使用！）
 ```
 
+### 跨會話的持久記憶
+
+會話會保存你的對話歷史，但 **記憶** 更進一步，讓 Copilot CLI 記住偏好與專案相關的事實，並可在所有會話之間共用，而不只限於單一會話。
+
+```bash
+copilot
+
+> /memory show
+# 顯示 Copilot CLI 目前為你和你的專案記住的內容
+
+> /memory on
+# 啟用記憶（如果你的帳戶支援，預設為開啟）
+
+> /memory off
+# 停用記憶（如果你想每次都有全新開始會很有用）
+```
+
+例如，如果你告訴 Copilot CLI「我偏好使用 pytest 作為 Python 的測試框架」，它可以記住該偏好並在未來的會話中自動套用，你不需要每次重複說明。
+
+> 💡 **記憶 vs. 會話**：會話會保存對話歷史，讓你能恢復特定任務；記憶則保存可重用的專案事實與使用者偏好，供 Copilot 在未來工作中套用。把會話想像成任務筆記本，記憶則是 Copilot 可攜帶並重複使用的上下文。
+
 ### 檢查與管理內容
 
 當您新增檔案與對話時，Copilot CLI 的 [context window](../GLOSSARY.md#context-window) 會逐漸填滿。以下幾個指令可以幫助您保持掌控：
@@ -587,6 +608,17 @@ copilot
 # 摘要對話紀錄，釋放內容空間
 # 你的關鍵發現和決定會被保留
 ```
+
+你也可以為 `/compact` 提供可選的焦點指示，來決定摘要時要優先保留的內容：
+
+```bash
+copilot
+
+> /compact focus on the list of bugs we found and decisions made
+# 摘要對話紀錄，將錯誤清單與決策放在顯著位置
+```
+
+> 💡 **何時使用焦點指示**：如果你的對話涵蓋多個主題，焦點指示可以幫助 `/compact` 保留對你下一步最重要的部分，避免失去脈絡。
 
 #### 內容效率提示
 
@@ -881,9 +913,10 @@ copilot --add-dir /path/to/directory
 1. **`@` 語法** 為 Copilot CLI 提供關於檔案、目錄和圖片的內容
 2. **多輪對話** 隨著內容的累積而相互建立
 3. **階段會自動儲存**：啟動時使用 `--name` 命名，使用 `--resume=<name>` 以名稱恢復，或使用 `--continue` 接續最近的階段
-4. **內容視窗** 有限制：使用 `/context`、`/clear` 和 `/compact` 管理它們
-5. **權限旗標** (`--add-dir`, `--allow-all`) 控制多目錄存取。請明智地使用它們！
-6. **圖片引用** (`@screenshot.png`) 幫助視覺化地對 UI 問題進行除錯
+4. **內容視窗有容量限制**：使用 `/clear`、`/compact`、`/context`、`/new` 與 `/rewind` 來管理。使用 `/compact focus on <topic>` 來決定摘要中要保留的內容。
+5. **永久記憶**（`/memory`）允許 Copilot CLI 在所有工作階段中記住偏好與事實——不只當前階段。
+6. **權限旗標**（`--add-dir`、`--allow-all`）用於控制多目錄存取。請謹慎使用！
+7. **圖片引用**（`@screenshot.png`）可用於視覺化地協助除錯介面問題。
 
 > 📚 **官方文件**：[使用 Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli) 以獲取關於內容、階段和處理檔案的完整參考。
 

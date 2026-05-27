@@ -436,14 +436,15 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | 命令 | 功能 |
 |------|------|
 | `/clear` | 放棄目前的會話（不儲存歷史）並開始新的對話 |
-| `/compact` | 將會話摘要以降低上下文使用量 |
+| `/compact` | 將對話摘要以減少上下文使用（可選加入聚焦指示，例如 `/compact focus on the bug list`） |
 | `/context` | 顯示上下文視窗的 token 使用情況與視覺化 |
 | `/keep-alive` | 防止系統在 Copilot CLI 執行時進入睡眠 — 適用於長時間執行的工作 |
+| `/memory [on\|off\|show]` | 啟用、停用或檢視持久記憶 — 在所有會話中記住事實與偏好 |
 | `/new` | 結束目前會話（並將其儲存到歷史以便搜尋/恢復）並開始新會話 |
 | `/resume` | 切換到不同的會話（可選擇指定會話 ID 或名稱） |
 | `/rename` | 重新命名當前會話（省略名稱則自動產生） |
 | `/rewind` | 開啟時間軸挑選器以回溯到會話的任一早期時間點 |
-| `/usage` | 顯示會話使用量指標與統計 |
+| `/usage` | 顯示會話使用量指標與統計，包括配額進度條 |
 | `/session` | 顯示會話資訊與工作區摘要；使用 `/session delete`、`/session delete <id>` 或 `/session delete-all` 來移除會話 |
 | `/share` | 將會話匯出為 markdown 檔案、GitHub gist，或自包含的 HTML 檔案 |
 
