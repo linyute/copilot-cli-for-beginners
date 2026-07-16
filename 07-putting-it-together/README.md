@@ -1,4 +1,15 @@
-![第 07 章：整合應用](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-07
+title: !translate 綜合起來
+description: !translate 將上下文、工作流程、代理、技能和 MCP 組合成完整的特性開發工作流程，從想法到拉取請求。
+audience: 開發者 / 學生 / 終端用戶
+slug: putting-it-all-together
+weight: 8
+---
+-->
+
+![第 07 章：整合應用](assets/chapter-header.png)
 
 > **你學到的一切都在這裡結合。在單個階段中，從想法到合併 PR 一氣呵成。**
 
@@ -21,7 +32,7 @@
 
 ## 🧩 現實世界的類比：管弦樂團
 
-<img src="images/orchestra-analogy.png" alt="管弦樂團類比 - 統一工作流程" width="800"/>
+<img src="assets/orchestra-analogy.png" alt="管弦樂團類比 - 統一工作流程" width="800"/>
 
 一個交響樂團有許多聲部：
 - **弦樂 (Strings)** 提供基礎 (就像你的核心工作流程)
@@ -109,7 +120,7 @@ copilot
 
 # 其他工作流程
 
-<img src="images/combined-workflows.png" alt="人們正在組裝帶有齒輪的彩色巨大拼圖，代表代理程式、技能與 MCP 如何結合成統一的工作流程" width="800"/>
+<img src="assets/combined-workflows.png" alt="人們正在組裝帶有齒輪的彩色巨大拼圖，代表代理程式、技能與 MCP 如何結合成統一的工作流程" width="800"/>
 
 對於已完成第 04-06 章的進階使用者，這些工作流程展示了代理程式、技能和 MCP 如何倍增你的成效。
 
@@ -117,7 +128,7 @@ copilot
 
 這是結合一切的心智模型：
 
-<img src="images/integration-pattern.png" alt="整合模式 - 4 階段工作流程：收集內容 (MCP)、分析與計畫 (代理程式)、執行 (技能 + 手動)、完成 (MCP)" width="800"/>
+<img src="assets/integration-pattern.png" alt="整合模式 - 4 階段工作流程：收集內容 (MCP)、分析與計畫 (代理程式)、執行 (技能 + 手動)、完成 (MCP)" width="800"/>
 
 ---
 
@@ -375,7 +386,7 @@ Include: Summary, Changes Made, Testing Done, Screenshots Needed"
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 將完整的工作流程投入實踐。
 

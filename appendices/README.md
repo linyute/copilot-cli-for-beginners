@@ -1,3 +1,14 @@
+<!--
+---
+id: CopilotCLI-Appendices
+title: !translate 附錄
+description: !translate 探索可選的參考資料，這些資料擴展了 GitHub Copilot CLI 入門課程的內容。
+audience: 開發者 / 學生 / 終端用戶
+slug: appendices
+weight: 9
+---
+-->
+
 # 附錄
 
 這些附錄涵蓋了擴展核心課程內容的其他主題。當你需要這些特定功能時，它們是選修閱讀內容。

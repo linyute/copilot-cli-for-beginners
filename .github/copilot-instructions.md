@@ -47,7 +47,7 @@
 ## Markdown 格式
 
 - 使用標準的 GitHub-Flavored Markdown。
-- 圖片放在儲存庫根目錄的 `images/` 目錄。
+- 圖片放在儲存庫根目錄的 `assets/` 目錄。
 - 跨章節參照使用相對連結（例如：`../03-development-workflows/README.md`）。
 - 標題中鼓勵使用表情符號（與既有風格一致）。
 
@@ -55,7 +55,7 @@
 
 | 變更項目 | 需更新檔案 |
 |---|---|
-| 新增章節 | `README.md`（課程目錄）、`AGENTS.md`（結構表）、`images/learning-path.png` |
+| 新增章節 | `README.md`（課程目錄）、`AGENTS.md`（結構表）、`assets/learning-path.png` |
 | 更新章節內容 | 該章節的 `README.md`，並確認相鄰章節的交叉參照 |
 | 新增樣本應用變體 | `AGENTS.md`（結構表）、`samples/` 目錄、相關章節參照 |
 | 樣本應用程式碼變更 | `samples/book-app-project/tests/`（更新/新增測試）、引用該程式碼的章節 |
@@ -66,5 +66,5 @@
 | 術語表新增條目 | `GLOSSARY.md` — 依字母順序加入定義 |
 | npm 指令變更 | `package.json`、`AGENTS.md`（建置區塊） |
 | Devcontainer 更新 | `.devcontainer/devcontainer.json`、第 00 章（設定說明） |
-| 圖片或橫幅變更 | `images/` 目錄，及任何參照該圖片的 README |
+| 圖片或橫幅變更 | `assets/` 目錄，及任何參照該圖片的 README |
 | Copilot CLI 版本需求變更 | 第 00 章、第 01 章、`.devcontainer/devcontainer.json` |

@@ -1,4 +1,15 @@
-![第 05 章：技能系統](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-05
+title: !translate 自動化重複性任務
+description: !translate 建立和使用代理技能，以便 GitHub Copilot CLI 可以自動應用特定任務的指令和團隊最佳實踐。
+audience: 開發者 / 學生 / 終端用戶
+slug: automate-repetitive-tasks
+weight: 6
+---
+-->
+
+![第 05 章：技能系統](assets/chapter-header.png)
 
 > **如果 Copilot 可以自動套用你團隊的最佳實作，而不需要你每次都解釋，會怎樣？**
 
@@ -21,7 +32,7 @@
 ## 🧩 現實世界的類比：電動工具
 
 通用電鑽很有用，但專門的配件使其功能強大。
-<img src="images/power-tools-analogy.png" alt="電動工具 - 技能擴展了 Copilot 的能力" width="800"/>
+<img src="assets/power-tools-analogy.png" alt="電動工具 - 技能擴展了 Copilot 的能力" width="800"/>
 
 
 技能以相同的方式運作。就像為不同的工作更換鑽頭一樣，你可以為不同的任務向 Copilot 新增技能：
@@ -41,7 +52,7 @@
 
 # 技能如何運作
 
-<img src="images/how-skills-work.png" alt="在星空背景上由光跡連接的發光 RPG 風格技能圖示，代表 Copilot 技能" width="800"/>
+<img src="assets/how-skills-work.png" alt="在星空背景上由光跡連接的發光 RPG 風格技能圖示，代表 Copilot 技能" width="800"/>
 
 瞭解什麼是技能、為什麼它們很重要，以及它們與代理程式和 MCP 有何不同。
 
@@ -138,7 +149,7 @@ Copilot 會在同一回應中套用每一項指定的技能，讓你不必發送
 
 > *暫時不必擔心 MCP。我們將在 [第 06 章](../06-mcp-servers/) 中介紹它。這裡包含它是為了讓你瞭解技能在整體架構中的位置。*
 
-<img src="images/skills-agents-mcp-comparison.png" alt="比較圖顯示代理程式、技能和 MCP 伺服器之間的差異，以及它們如何結合成你的工作流程" width="800"/>
+<img src="assets/skills-agents-mcp-comparison.png" alt="比較圖顯示代理程式、技能和 MCP 伺服器之間的差異，以及它們如何結合成你的工作流程" width="800"/>
 
 | 功能 | 作用 | 何時使用 |
 |---------|--------------|-------------|
@@ -193,7 +204,7 @@ copilot
 3. 自動載入你團隊的品質檢查表
 4. 無需你列出項目即可套用所有檢查
 
-<img src="images/skill-auto-discovery-flow.png" alt="技能如何自動觸發 - 4 步流程顯示 Copilot 如何自動將你的提示與正確技能匹配" width="800"/>
+<img src="assets/skill-auto-discovery-flow.png" alt="技能如何自動觸發 - 4 步流程顯示 Copilot 如何自動將你的提示與正確技能匹配" width="800"/>
 
 *只需自然提問。Copilot 會將你的提示與正確的技能匹配並自動套用。*
 
@@ -228,7 +239,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![技能觸發展示](images/skill-trigger-demo.gif)
+![技能觸發展示](assets/skill-trigger-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -276,7 +287,7 @@ PR Review: feature/user-auth
 
 # 建立自訂技能
 
-<img src="images/creating-managing-skills.png" alt="人類與機器人的手正在建造一面由發光的 LEGO 風格積木組成的牆，代表技能的建立與管理" width="800"/>
+<img src="assets/creating-managing-skills.png" alt="人類與機器人的手正在建造一面由發光的 LEGO 風格積木組成的牆，代表技能的建立與管理" width="800"/>
 
 從 SKILL.md 檔案建立你自己的技能。
 
@@ -359,6 +370,9 @@ license: MIT
 | `name` | **是** | 唯一識別碼 (小寫，空格用連字號替代) |
 | `description` | **是** | 技能的作用以及 Copilot 何時應使用它 |
 | `license` | 否 | 適用於此技能的授權條款 |
+| `argument-hint` | 否 | 向使用者顯示簡短提示，說明該技能所需的參數（例如，`「檔案路徑或程式碼片段」`） |
+
+> 💡 **什麼是 `argument-hint` (參數提示)？ ** 當使用者直接呼叫技能（例如，`/security-audit`）時，`argument-hint` 文字會作為佔位符顯示，指示接下來要輸入的內容－類似於一個迷你幫助提示。例如，設定 `argument-hint: "要審核的檔案路徑"` 會告訴使用者在技能名稱後提供檔案路徑。
 
 > 📖 **官方文件**：[關於代理程式技能 (About Agent Skills)](https://docs.github.com/copilot/concepts/agents/about-agent-skills)
 
@@ -473,27 +487,59 @@ copilot --agent code-reviewer
 
 發現已安裝的技能、尋找社群技能並分享你自己的技能。
 
-<img src="images/managing-sharing-skills.png" alt="管理與分享技能 - 顯示 CLI 技能的發現、使用、建立和分享循環" width="800" />
+<img src="assets/managing-sharing-skills.png" alt="管理與分享技能 - 顯示 CLI 技能的發現、使用、建立和分享循環" width="800" />
 
 ---
 
-## 使用 `/skills` 指令管理技能
+## 使用 `copilot skill` 指令與 `/skills` 管理技能
 
-使用 `/skills` 指令來管理你安裝的技能：
+Copilot CLI 提供兩種管理技能的方式。你可以直接在啟動 Copilot 前從終端機進行管理，或是在 Copilot 工作階段中進行。
 
-| 指令 | 作用 |
-|---------|--------------|
-| `/skills list` | 顯示所有已安裝的技能 |
-| `/skills info <名稱>` | 取得特定技能的詳細資訊 |
-| `/skills add <名稱>` | 啟用一項技能 (來自儲存庫或市集) |
-| `/skills remove <名稱>` | 停用或解除安裝一項技能 |
-| `/skills reload` | 編輯 SKILL.md 檔案後重新載入技能 |
+### 選項 1：`copilot skill` (終端機指令)
 
-> 💡 **記住**：你不需要為每個提示「啟用」技能。一旦安裝，技能會在你的提示符合其說明時**自動觸發**。這些指令是用於管理哪些技能可用，而不是用於使用它們。
-
-### 範例：檢視你的技能
+`copilot skill` 子指令讓你直接從終端機管理技能，無需開啟互動式 Copilot 工作階段。這對於腳本編寫、快速檢查或在開始工作前新增技能非常方便。
 
 ```bash
+# 查看所有已安裝的技能
+copilot skill list
+
+# 從本地檔案、URL 或目錄新增技能
+copilot skill add .github/skills/my-skill/SKILL.md
+copilot skill add https://example.com/skills/security-audit/SKILL.md
+
+# 依名稱移除技能
+copilot skill remove security-audit
+```
+
+### 選項 2：`/skills` (Copilot 工作階段內)
+
+進入互動式 Copilot 工作階段後，使用 `/skills` (或其簡寫 `/skill`) 即可在不離開的情況下管理技能：
+
+| 指令 | 功能 |
+|---------|--------------|
+| `/skills list` | 顯示所有已安裝的技能 |
+| `/skills info <name>` | 取得特定技能的詳細資訊 |
+| `/skills add <name>` | 啟用技能 (從儲存庫或市集) |
+| `/skills remove <name>` | 停用或解除安裝技能 |
+| `/skills reload` | 編輯 SKILL.md 檔案後重新載入技能 |
+
+> 💡 **`/skill` 捷徑**：你可以輸入 `/skill` 而不是 `/skills` — 它們是可以互換的。例如，`/skill list` 的作用與 `/skills list` 相同。
+
+> 💡 **請記住**：你不需要為每個提示「啟動」技能。一旦安裝，當你的提示與其說明相符時，技能就會**自動觸發**。這些指令是用於管理哪些技能可用，而不是用於使用它們。
+
+### 範例：查看你的技能
+
+```bash
+# 從終端機 (無需互動式工作階段)：
+copilot skill list
+
+Available skills:
+- security-audit: Security-focused code review checking OWASP Top 10
+- generate-tests: Generate comprehensive unit tests with edge cases
+- code-checklist: Team code quality checklist
+...
+
+# 或從 Copilot 工作階段內：
 copilot
 
 > /skills list
@@ -517,7 +563,7 @@ copilot
 <details>
 <summary>看看它的實際運作！</summary>
 
-![列出技能展示](images/list-skills-demo.gif)
+![列出技能展示](assets/list-skills-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -584,10 +630,10 @@ copilot plugin marketplace update
 gh skill install github/awesome-copilot
 
 # 或者直接安裝特定技能
-gh skill install github/awesome-copilot code-checklist
+gh skill install github/awesome-copilot ai-ready
 
 # 在使用者範圍中安裝（適用於所有專案）
-gh skill install github/awesome-copilot code-checklist --scope user
+gh skill install github/awesome-copilot ai-ready --scope user
 ```
 
 > ⚠️ **安裝前請審查**：安裝前務必閱讀技能的 `SKILL.md`。技能會控制 Copilot 的行為，惡意技能可能會指示執行有害命令或意外修改程式碼。
@@ -596,7 +642,7 @@ gh skill install github/awesome-copilot code-checklist --scope user
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 透過建立和測試你自己的技能來應用你學到的知識。
 
@@ -863,9 +909,10 @@ copilot
 
 1. **技能是自動的**：當你的提示與技能說明匹配時，Copilot 會載入它們
 2. **直接呼叫**：你也可以使用 `/技能名稱` 作為斜線指令直接呼叫技能
-3. **SKILL.md 格式**：YAML Frontmatter (名稱、說明、選填的授權) 加上 markdown 指示
+3. **SKILL.md 格式**：YAML Frontmatter (名稱、說明、選填的授權、參數提示) 加上 markdown 指示
 4. **位置很重要**：`.github/skills/` 用於專案/團隊共享，`~/.copilot/skills/` 用於個人使用
 5. **說明是關鍵**：撰寫與你自然提問方式相匹配的說明
+6. **管理技能的兩種方法**：在終端機中使用 `copilot skill` 指令，或在會話中使用 `/skills` 指令（快速鍵：`/skill`）。
 
 > 📋 **快速參考**：查看 [GitHub Copilot CLI 指令參考](https://docs.github.com/en/copilot/reference/cli-command-reference) 以獲取指令和快速鍵的完整清單。
 

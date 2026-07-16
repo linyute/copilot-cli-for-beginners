@@ -1,4 +1,15 @@
-![第 00 章：快速入門](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-00
+title: !translate 快速入門
+description: !translate 安裝 GitHub Copilot CLI，使用您的 GitHub 帳戶登入，並驗證一切是否正常。
+audience: 開發者 / 學生 / 終端用戶
+slug: quick-start
+weight: 1
+---
+-->
+
+![第 00 章：快速入門](assets/chapter-header.png)
 
 歡迎！在本章中，你將安裝 GitHub Copilot CLI (命令列介面)、使用你的 GitHub 帳號登入，並驗證一切運作正常。這是一個快速設定章節。一旦你準備就緒，真正的展示將在第 01 章開始！
 
@@ -124,7 +135,7 @@ copilot
 
 系統會詢問你是否信任包含儲存庫的資料夾 (如果你尚未信任)。你可以信任一次或在所有未來的階段中信任。
 
-<img src="images/copilot-trust.png" alt="使用 Copilot CLI 信任資料夾中的檔案" width="800"/>
+<img src="assets/copilot-trust.png" alt="使用 Copilot CLI 信任資料夾中的檔案" width="800"/>
 
 信任資料夾後，你可以使用你的 GitHub 帳號登入。
 
@@ -140,7 +151,7 @@ copilot
 4. 選擇「Authorize」以授予 GitHub Copilot CLI 存取權限
 5. 返回你的終端機 - 你現在已登入！
 
-<img src="images/auth-device-flow.png" alt="裝置授權流程 - 顯示從終端機登入到登入確認的 5 個步驟" width="800"/>
+<img src="assets/auth-device-flow.png" alt="裝置授權流程 - 顯示從終端機登入到登入確認的 5 個步驟" width="800"/>
 
 *裝置授權流程：你的終端機產生一個代碼，你在瀏覽器中驗證它，然後 Copilot CLI 獲得驗證。*
 
@@ -169,7 +180,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![Hello 展示](images/hello-demo.gif)
+![Hello 展示](assets/hello-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 

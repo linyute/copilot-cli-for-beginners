@@ -2,7 +2,7 @@
 /**
  * 從 .tape 檔案產生課程示範 GIF
  *
- * 此腳本會尋找 [chapter]/images/ 資料夾中所有的 .tape 檔案，並執行 VHS
+ * 此腳本會尋找 [chapter]/assets/ 資料夾中所有的 .tape 檔案，並執行 VHS
  * 來產生 GIF。VHS 在專案根目錄執行，以便提示詞中的 @file 參考
  * 能正確解析。
  *
@@ -135,7 +135,7 @@ function cleanupCopilotWrapper() {
   try { rmSync(wrapperDir, { recursive: true }); } catch (e) { /* 忽略 */ }
 }
 
-// 尋找 [chapter]/images/ 資料夾中所有的 .tape 檔案
+// 尋找 [chapter]/assets/ 資料夾中所有的 .tape 檔案
 function findTapeFiles(dir, chapterFilter) {
   const tapeFiles = [];
 
@@ -151,13 +151,13 @@ function findTapeFiles(dir, chapterFilter) {
         if (!matches) continue;
       }
 
-      const imagesDir = join(fullPath, 'images');
-      if (existsSync(imagesDir)) {
+      const assetsDir = join(fullPath, 'assets');
+      if (existsSync(assetsDir)) {
         try {
-          const imagesEntries = readdirSync(imagesDir);
-          for (const file of imagesEntries) {
+          const assetsEntries = readdirSync(assetsDir);
+          for (const file of assetsEntries) {
             if (file.endsWith('.tape')) {
-              tapeFiles.push(join(imagesDir, file));
+              tapeFiles.push(join(assetsDir, file));
             }
           }
         } catch (e) {
@@ -180,7 +180,7 @@ function getOutputFilename(tapeFilePath) {
 // 執行單一 VHS 錄製並回傳 Promise
 function runVhs(tapeFile, wrappedPath) {
   const relativePath = relative(rootDir, tapeFile);
-  const imagesDir = dirname(tapeFile);
+  const assetsDir = dirname(tapeFile);
   const outputFilename = getOutputFilename(tapeFile);
 
   return new Promise((resolve) => {
@@ -197,7 +197,7 @@ function runVhs(tapeFile, wrappedPath) {
       let gifCreated = false;
       if (outputFilename) {
         const generatedPath = join(rootDir, outputFilename);
-        const targetPath = join(imagesDir, outputFilename);
+        const targetPath = join(assetsDir, outputFilename);
         if (existsSync(generatedPath) && generatedPath !== targetPath) {
           renameSync(generatedPath, targetPath);
           gifCreated = true;

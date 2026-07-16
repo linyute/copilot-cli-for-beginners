@@ -1,4 +1,15 @@
-![第 01 章：第一步](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-01
+title: !translate 第一步
+description: !translate 透過動手演示體驗 GitHub Copilot CLI，然後學習何時使用互動式、計劃式和程序化模式。
+audience: 開發者 / 學生 / 終端用戶
+slug: first-steps
+weight: 2
+---
+-->
+
+![第 01 章：第一步](assets/chapter-header.png)
 
 > **觀看 AI 立即發現程式碼漏洞、解釋令人困惑的程式碼並產生可執行的指令碼。接著學習使用 GitHub Copilot CLI 的三種不同方式。**
 
@@ -20,7 +31,7 @@
 
 # 你的第一次 Copilot CLI 體驗
 
-<img src="images/first-copilot-experience.png" alt="開發者坐在桌子旁，螢幕上顯示程式碼，發光的微粒代表 AI 協助" width="800"/>
+<img src="assets/first-copilot-experience.png" alt="開發者坐在桌子旁，螢幕上顯示程式碼，發光的微粒代表 AI 協助" width="800"/>
 
 直接進入並看看 Copilot CLI 能做什麼。
 
@@ -86,7 +97,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![程式碼審查展示](images/code-review-demo.gif)
+![程式碼審查展示](assets/code-review-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -111,7 +122,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![解釋程式碼展示](images/explain-code-demo.gif)
+![解釋程式碼展示](assets/explain-code-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -167,7 +178,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![產生程式碼展示](images/generate-code-demo.gif)
+![產生程式碼展示](assets/generate-code-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同. *
 
@@ -189,7 +200,7 @@ copilot
 
 # 模式與指令
 
-<img src="images/modes-and-commands.png" alt="具有發光螢幕、旋鈕和等化器的未來派控制面板，代表 Copilot CLI 模式與指令" width="800"/>
+<img src="assets/modes-and-commands.png" alt="具有發光螢幕、旋鈕和等化器的未來派控制面板，代表 Copilot CLI 模式與指令" width="800"/>
 
 你剛剛看到了 Copilot CLI 能做什麼。現在讓我們瞭解*如何*有效地使用這些功能。關鍵是知道在不同情況下應使用三種互動模式中的哪一種。
 
@@ -209,7 +220,7 @@ copilot
 
 就像外出用餐一樣，你自然會學會每種方法何時感覺合適。
 
-<img src="images/ordering-food-analogy.png" alt="使用 GitHub Copilot CLI 的三種方式 - 計畫模式 (前往餐廳的 GPS 路線)、互動模式 (與服務生交談)、程式化模式 (得來速)" width="800"/>
+<img src="assets/ordering-food-analogy.png" alt="使用 GitHub Copilot CLI 的三種方式 - 計畫模式 (前往餐廳的 GPS 路線)、互動模式 (與服務生交談)、程式化模式 (得來速)" width="800"/>
 
 *根據任務選擇你的模式：計畫模式用於先規劃，互動模式用於來回協作，程式化模式用於快速取得一次性結果*
 
@@ -230,7 +241,7 @@ copilot
 
 ### 模式 1：互動 (Interactive) 模式 (從這裡開始)
 
-<img src="images/interactive-mode.png" alt="互動模式 - 就像與可以回答問題並調整訂單的服務生交談" width="250"/>
+<img src="assets/interactive-mode.png" alt="互動模式 - 就像與可以回答問題並調整訂單的服務生交談" width="250"/>
 
 **最適合**：探索、迭代、多輪對話。就像與可以回答問題、接受回饋並隨時調整訂單的服務生交談一樣。
 
@@ -268,7 +279,7 @@ copilot
 
 ### 模式 2：計畫 (Plan) 模式
 
-<img src="images/plan-mode.png" alt="計畫模式 - 就像在旅行前使用 GPS 規劃路線" width="250"/>
+<img src="assets/plan-mode.png" alt="計畫模式 - 就像在旅行前使用 GPS 規劃路線" width="250"/>
 
 **最適合**：需要在執行前審查方法的複雜任務。類似於在旅行前使用 GPS 規劃路線。
 
@@ -324,7 +335,7 @@ copilot --plan
 
 ### 模式 3：程式化 (Programmatic) 模式
 
-<img src="images/programmatic-mode.png" alt="程式化模式 - 就像使用得來速快速點餐" width="250"/>
+<img src="assets/programmatic-mode.png" alt="程式化模式 - 就像使用得來速快速點餐" width="250"/>
 
 **最適合**：自動化、指令碼、CI/CD、單次指令。就像使用得來速快速點餐一樣，不需要與服務生交談。
 
@@ -372,10 +383,13 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | `/help` | 顯示所有可用命令 | 忘記命令時 |
 | `/model` | 顯示或切換 AI 模型 | 想變更使用的模型時 |
 | `/plan` | 在寫程式前規劃工作流程 | 需要處理較複雜的功能時 |
+| `/refine` | 將粗略的、意識流式的提示改寫成清晰、重點突出的提示 | 當你的提示感覺雜亂無章，而你想要更好的結果時 |
 | `/research` | 使用 GitHub 與網路資源進行深入研究 | 需要事前調查時 |
 | `/exit` | 結束會話 | 完成工作時 |
 
 > 💡 **`/ask` 與一般對話的差異**：通常你傳送的每則訊息都會成為對話的一部分並影響後續回應。`/ask` 是一個「不留在對話紀錄中」的捷徑——適合用於像 `/ask What does YAML mean?` 這類一次性問題，而不會污染會話內容。
+
+> 💡 **`/refine` 以獲得更好的提示**：不確定您的提示是否足夠清晰？將想到的內容輸入出來，然後執行 `/refine`，讓 Copilot 在發送之前將其重寫為精確、結構良好的提示。當您不熟悉人工智慧工具並且仍在學習如何編寫有效的提示時，這尤其有用。
 
 > 💡 **Tab 補完**：在輸入斜線命令時，按 **Tab** 可自動完成命令名稱或在可用的子命令與參數間切換。當你無法確定命令名稱時，這會非常有幫助。
 
@@ -396,6 +410,7 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | `/env` | 顯示已載入的環境詳情 — 目前有哪些指示、MCP 伺服器、技能、代理與外掛正在啟用 |
 | `/init` | 為你的儲存庫初始化 Copilot 指示 |
 | `/mcp` | 管理 MCP 伺服器設定 |
+| `/settings` | 開啟互動式對話框，在一個位置瀏覽和編輯所有使用者設定 |
 | `/skills` | 管理可增強能力的技能 |
 
 > 💡 代理（Agents）會在第 04 章介紹，技能（Skills）在第 05 章，MCP 伺服器在第 06 章。
@@ -447,6 +462,8 @@ copilot --allow-all -p "Review @myfile.py for issues"
 | `/usage` | 顯示會話使用量指標與統計，包括配額進度條 |
 | `/session` | 顯示會話資訊與工作區摘要；使用 `/session delete`、`/session delete <id>` 或 `/session delete-all` 來移除會話 |
 | `/share` | 將會話匯出為 markdown 檔案、GitHub gist，或自包含的 HTML 檔案 |
+| `/every <間隔> <提示>` | 安排一個提示按固定時間間隔運行（例如，`/every 1h summary new commits`）。間隔時間請使用自然語言指定。 `/loop` 是 `/every` 的別名。 |
+| `/after <時間> <提示>` | 安排一個提示在延遲一段時間後運行一次（例如，`/after 30m run tests`）。時間請使用自然語言指定。 |
 
 ### 顯示
 
@@ -454,11 +471,13 @@ copilot --allow-all -p "Review @myfile.py for issues"
 |------|------|
 | `/statusline`（或 `/footer`） | 自訂會話底部狀態列上要顯示的項目（目錄、分支、effort、上下文視窗、配額） |
 | `/theme` | 檢視或設定終端機主題 |
+| `/voice` | 使用本地語音轉文字功能輸入您的提示訊息－自然地說話，而不是打字 |
 
 ### 求助與回饋
 
 | 命令 | 功能 |
 |------|------|
+| `/app` | 直接從命令列介面開啟 GitHub 應用（或瀏覽器備用方案） |
 | `/changelog` | 顯示 CLI 版本變更記錄 |
 | `/feedback` | 向 GitHub 提交回饋 |
 | `/help` | 顯示所有可用命令 |
@@ -492,13 +511,15 @@ copilot
 
 > 💡 **不確定要選哪個模型嗎？** 在模型選擇器中選擇 **`Auto`**，讓 Copilot 為每次會話自動挑選最佳可用模型。這是很好的預設，特別適合剛開始使用且不想煩惱模型選擇的人。
 
+> 💡 **模型系列快捷方式**：您也可以直接在 `/model` 選擇器中輸入簡短的模型系列別名，例如 `opus`、`sonnet`、`haiku`、`gpt` 或 `gemini`，而無需滾動瀏覽完整列表。 Copilot 會自動為您選擇該系列中最佳的可用模型。
+
 </details>
 
 ---
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 是時候將你學到的知識付諸行動了。
 
@@ -648,7 +669,7 @@ Copilot CLI 會顯示一個連結並提供 QR 碼。打開該連結（手機或�
 |---------|--------------|-----|
 | 輸入 `exit` 而非 `/exit` | Copilot CLI 將 "exit" 視為提示而非指令 | 斜線指令始終以 `/` 開頭 |
 | 將 `-p` 用於多輪對話 | 每次 `-p` 呼叫都是獨立的，沒有先前呼叫的記憶 | 使用互動模式 (`copilot`) 進行建立在內容基礎上的對話 |
-| 忘記在帶有 `$` 或 `!` 的提示周圍加引號 | Shell 會在 Copilot CLI 看到之前解釋特殊字元 | 將提示封裝在引號中：`copilot -p "What does $HOME mean?"` |
+| 忘記在帶有 `$` 或 `!` 的提示符周圍添加引號 | Shell 會在 Copilot CLI 識別特殊字符之前對其進行解析 | 將提示符用單引號括起來：`copilot -p 'What does $HOME mean?'` |
 | 按一次 Esc 以取消正在執行的任務 | 單次 Esc 不再會取消進行中的工作（以避免意外） | 當 Copilot CLI 正在處理時，按 **Esc** 兩次以取消 |
 
 ### 疑難排解

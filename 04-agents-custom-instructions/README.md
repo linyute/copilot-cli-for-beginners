@@ -1,4 +1,15 @@
-![第 04 章：代理程式與自訂指示](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-04
+title: !translate 創建專用人工智慧助手
+description: !translate 使用內建代理、建立自訂代理，並編寫自訂指令來指導 GitHub Copilot CLI 執行特定任務。
+audience: 開發者 / 學生 / 終端用戶
+slug: create-specialized-ai-assistants
+weight: 5
+---
+-->
+
+![第 04 章：代理程式與自訂指示](assets/chapter-header.png)
 
 > **如果你可以聘請一位 Python 程式碼審查員、測試專家和安全審查員...而且全都在同一個工具中，會怎樣？**
 
@@ -32,7 +43,7 @@
 
 代理程式以相同的方式運作。與其使用通用的 AI，不如使用專注於特定任務並知道該遵循正確流程的代理程式。設定一次指示，然後在需要該專長時重複使用：程式碼審查、測試、安全、文件。
 
-<img src="images/hiring-specialists-analogy.png" alt="聘請專家類比 - 就像你為了房屋維修找專業技工一樣，AI 代理程式也專門負責程式碼審查、測試、安全和文件等特定任務" width="800" />
+<img src="assets/hiring-specialists-analogy.png" alt="聘請專家類比 - 就像你為了房屋維修找專業技工一樣，AI 代理程式也專門負責程式碼審查、測試、安全和文件等特定任務" width="800" />
 
 ---
 
@@ -105,7 +116,7 @@ copilot
 
 你可以簡單地定義自己的代理程式，讓它們成為你工作流程的一部分！定義一次，隨處指派！
 
-<img src="images/using-agents.png" alt="四個色彩繽紛的 AI 機器人站在一起，每個都帶有代表專門代理程式能力的不同工具" width="800"/>
+<img src="assets/using-agents.png" alt="四個色彩繽紛的 AI 機器人站在一起，每個都帶有代表專門代理程式能力的不同工具" width="800"/>
 
 ## 🗂️ 新增你的代理程式
 
@@ -185,11 +196,13 @@ copilot --agent python-reviewer
 
 > 💡 **切換代理程式**：你隨時可以再次使用 `/agent` 或 `--agent` 切換到不同的代理程式。要返回標準 Copilot CLI 體驗，請使用 `/agent` 並選擇 **no agent**。
 
+> 💡 **代理模式是會話級的**：您選擇的代理僅適用於目前會話。當您使用 `/new`、`/clear` 命令啟動新會話，或開啟一個全新的終端機時，Copilot 會恢復到預設模式—您的代理程式選擇不會自動保留。這意味著每個會話都從零開始，這有助於您保持專注。
+
 ---
 
 # 深入探索代理程式
 
-<img src="images/creating-custom-agents.png" alt="機器人在工作台上組裝，周圍環繞著元件和工具，代表自訂代理程式的建立" width="800"/>
+<img src="assets/creating-custom-agents.png" alt="機器人在工作台上組裝，周圍環繞著元件和工具，代表自訂代理程式的建立" width="800"/>
 
 > 💡 **本節是選修內容。** 內建代理程式 (`/plan`, `/review`) 對於大多數工作流程來說已經足夠強大。當你需要一致地應用於工作中的專門領域知識時，再建立自訂代理程式。
 
@@ -337,7 +350,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![Python 審查員展示](images/python-reviewer-demo.gif)
+![Python 審查員展示](assets/python-reviewer-demo.gif)
 
 *展示輸出會有所不同——你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -386,7 +399,7 @@ copilot
 
 你已經知道兩個主要位置 (請參閱上方的 [代理程式檔案放置位置](#代理程式檔案放置位置))。使用此決策樹進行選擇：
 
-<img src="images/agent-file-placement-decision-tree.png" alt="代理程式檔案放置位置決策樹：實驗中 → 目前資料夾，團隊使用 → .github/agents/，隨處使用 → ~/.copilot/agents/" width="800"/>
+<img src="assets/agent-file-placement-decision-tree.png" alt="代理程式檔案放置位置決策樹：實驗中 → 目前資料夾，團隊使用 → .github/agents/，隨處使用 → ~/.copilot/agents/" width="800"/>
 
 **從簡單開始：** 在你的專案資料夾中建立一個單一的 `*.agent.md` 檔案。一旦你對它感到滿意，就將其移動到永久位置。
 
@@ -422,6 +435,7 @@ Copilot 會掃描你的專案並建立量身定制的指示檔案。你之後可
 | `AGENTS.md` | 專案根目錄或巢狀目錄 | **跨平台標準** - 適用於 Copilot 和其他 AI 助理 |
 | `.github/copilot-instructions.md` | 專案 | GitHub Copilot 特定 |
 | `.github/instructions/*.instructions.md` | 專案 | 細粒度的、針對特定主題的指示 |
+| `~/.copilot/instructions/**/*.instructions.md` | 使用者（所有項目） | 適用於所有儲存庫的個人指令 |
 | `CLAUDE.md`, `GEMINI.md` | 專案根目錄 | 支援以實現相容性 |
 
 > 🎯 **剛剛開始？** 使用 `AGENTS.md` 作為專案指示。你可以根據需要稍後探索其他格式。
@@ -471,6 +485,22 @@ applyTo: "**/*.py"
 | (無前置欄) | 每一次對話 — 預設 |
 
 > 💡 提示：將 glob 模式以引號包起（例如 `"**/*.py"`），可確保在各作業系統與 shell 中皆能正確解析。
+
+#### 使用 `@` 匯入其他檔案
+
+你可以在 `AGENTS.md` 或任何指示檔中使用 `@filepath` 語法來引用另一個檔案。Copilot 會展開該引用並自動包含該檔案的內容，因此你可以保持主檔案簡潔，同時將細節儲存在其他地方：
+
+```markdown
+<!-- AGENTS.md -->
+# 專案指示
+
+@.github/instructions/python-standards.instructions.md
+@.github/instructions/test-standards.instructions.md
+```
+
+當你的指示變得龐大時，這非常方便。將它們拆分為專注的檔案，並從單個 `AGENTS.md` 中使用 `@` 匯入它們。同樣的語法也適用於 `.github/copilot-instructions.md` 和其他指示檔。
+
+> 💡 **提示**：使用 `@` 匯入在多個指示檔之間共享通用的基礎檔案。例如，你可以有一個 `@.github/instructions/shared-rules.md`，讓每個其他的指示檔都拉入。
 
 ### 停用自訂指示
 
@@ -563,7 +593,7 @@ tools: ["read", "edit", "search", "execute"]
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 建立你自己的代理程式並觀看它們的實際運作。
 

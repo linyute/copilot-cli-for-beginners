@@ -1,4 +1,15 @@
-![GitHub Copilot CLI 初學者指南](./images/copilot-banner.png)
+<!--
+---
+id: CopilotCLI-ROOT
+title: !translate GitHub Copilot CLI 初學者指南
+description: !translate 學習如何利用終端機中的 AI 命令列助手，大幅提升您的開發工作流程。
+audience: 開發者 / 學生 / 終端用戶
+slug: copilot-cli-for-beginners
+weight: 0
+---
+-->
+
+![GitHub Copilot CLI 初學者指南](./assets/copilot-banner.png)
 
 [![授權條款：MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
 [![在 GitHub Codespaces 中開啟專案](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
@@ -54,7 +65,7 @@ GitHub Copilot 已發展成為一系列 AI 驅動的工具。以下是各工具�
 
 ## 📚 課程結構
 
-![GitHub Copilot CLI 學習路徑](images/learning-path.png)
+![GitHub Copilot CLI 學習路徑](assets/learning-path.png)
 
 | 章節 | 標題 | 你將建構什麼 |
 |:-------:|-------|-------------------|

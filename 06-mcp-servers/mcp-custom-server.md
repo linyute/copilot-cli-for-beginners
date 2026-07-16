@@ -1,3 +1,14 @@
+<!--
+---
+id: CopilotCLI-06-Custom-MCP-Server
+title: !translate 建構自訂 MCP 伺服器
+description: !translate 使用 Python 建立一個簡單的自訂 MCP 伺服器，將 GitHub Copilot CLI 連接到您自己的 API。
+audience: 開發者 / 學生 / 終端用戶
+slug: building-a-custom-mcp-server
+weight: 61
+---
+-->
+
 # 建構自訂 MCP 伺服器
 
 > ⚠️ **此內容完全是選修的。** 僅使用預建的 MCP 伺服器 (GitHub、檔案系統、Context7)，你就能在使用 Copilot CLI 時具備極高生產力。本指南適用於想要將 Copilot 連接到自訂內部 API 的開發者。詳情請參閱 [MCP 初學者課程](https://github.com/microsoft/mcp-for-beginners)。

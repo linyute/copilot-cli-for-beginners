@@ -1,3 +1,14 @@
+<!--
+---
+id: CopilotCLI-Appendix-Additional-Context
+title: !translate 額外的內容功能
+description: !translate 了解如何在 GitHub Copilot CLI 中使用映像上下文並管理多個目錄的權限。
+audience: 開發者 / 學生 / 終端用戶
+slug: additional-context-features
+weight: 92
+---
+-->
+
 # 額外的內容功能
 
 > 📖 **先決條件**：在閱讀此附錄之前，請先完成 [第 02 章：內容與對話](../02-context-conversations/README.md)。

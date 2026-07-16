@@ -1,3 +1,14 @@
+<!--
+---
+id: CopilotCLI-Appendix-CI-CD-Integration
+title: !translate CI/CD 整合
+description: !translate 將 GitHub Copilot CLI 整合到 GitHub Actions 工作流程中，以實現自動拉取請求審查。
+audience: 開發者 / 學生 / 終端用戶
+slug: ci-cd-integration
+weight: 91
+---
+-->
+
 # CI/CD 整合
 
 > 📖 **先決條件**：在閱讀此附錄之前，請先完成 [第 07 章：整合應用](../07-putting-it-together/README.md)。

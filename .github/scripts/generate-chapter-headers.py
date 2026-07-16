@@ -23,7 +23,7 @@ CHAPTERS = {
 # 取得專案根目錄 (scripts 資料夾的父目錄)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
-BACKGROUND_IMAGE = os.path.join(PROJECT_ROOT, "images", "chapter-header-bg.png")
+BACKGROUND_IMAGE = os.path.join(PROJECT_ROOT, "assets", "chapter-header-bg.png")
 
 # 字型設定 - 比原始的 36px 大 25%
 FONT_SIZE = 45
@@ -112,8 +112,8 @@ def generate_header(chapter_folder, title, font):
         y = (height - text_height) // 2
         draw.text((x, y), title, fill=(255, 255, 255), font=font)
 
-    # 儲存到章節的 images 資料夾
-    output_dir = os.path.join(PROJECT_ROOT, chapter_folder, "images")
+    # 儲存到章節的 assets 資料夾
+    output_dir = os.path.join(PROJECT_ROOT, chapter_folder, "assets")
     os.makedirs(output_dir, exist_ok=True)
 
     output_path = os.path.join(output_dir, "chapter-header.png")

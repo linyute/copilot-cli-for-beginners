@@ -136,13 +136,13 @@ console.log('📝 正在從 demos.json 建立 tape 檔案...\n');
 let created = 0;
 
 for (const demo of config.demos) {
-  const imagesDir = join(rootDir, demo.chapter, 'images');
-  const tapePath = join(imagesDir, `${demo.name}.tape`);
+  const assetsDir = join(rootDir, demo.chapter, 'assets');
+  const tapePath = join(assetsDir, `${demo.name}.tape`);
 
   // 確保圖片目錄存在
-  if (!existsSync(imagesDir)) {
-    mkdirSync(imagesDir, { recursive: true });
-    console.log(`  已建立：${demo.chapter}/images/`);
+  if (!existsSync(assetsDir)) {
+    mkdirSync(assetsDir, { recursive: true });
+    console.log(`  已建立：${demo.chapter}/assets/`);
   }
 
   // 產生 tape 內容
@@ -150,7 +150,7 @@ for (const demo of config.demos) {
 
   // 寫入 tape 檔案
   writeFileSync(tapePath, content);
-  console.log(`  ✓ ${demo.chapter}/images/${demo.name}.tape`);
+  console.log(`  ✓ ${demo.chapter}/assets/${demo.name}.tape`);
   created++;
 }
 

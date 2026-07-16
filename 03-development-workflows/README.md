@@ -1,4 +1,15 @@
-![第 03 章：開發工作流程](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-03
+title: !translate 章：開發工作流程
+description: !translate 將 GitHub Copilot CLI 應用於日常開發工作流程，包括程式碼審查、重構、調試、測試生成和 Git。
+audience: 開發者 / 學生 / 終端用戶
+slug: development-workflows
+weight: 4
+---
+-->
+
+![第 03 章：開發工作流程](assets/chapter-header.png)
 
 > **如果 AI 能發現你甚至不知道要詢問的程式碼漏洞，會怎樣？**
 
@@ -22,7 +33,7 @@
 
 木匠不僅知道如何使用工具，他們還針對不同的工作擁有不同的*工作流程*：
 
-<img src="images/carpenter-workflow-steps.png" alt="工匠工作坊顯示三個工作流程車道：製作家具 (測量、切割、組裝、飾面)、修復損壞 (評估、移除、修理、匹配) 和品質檢查 (檢查、測試接合處、檢查對齊)" width="800"/>
+<img src="assets/carpenter-workflow-steps.png" alt="工匠工作坊顯示三個工作流程車道：製作家具 (測量、切割、組裝、飾面)、修復損壞 (評估、移除、修理、匹配) 和品質檢查 (檢查、測試接合處、檢查對齊)" width="800"/>
 
 同樣地，開發者針對不同的任務也有工作流程。GitHub Copilot CLI 增強了這些工作流程中的每一個，讓你更有效率地處理日常編碼任務。
 
@@ -30,7 +41,7 @@
 
 # 五個工作流程
 
-<img src="images/five-workflows.png" alt="五個發光的霓虹圖示，分別代表程式碼審查、測試、除錯、重構和 git 整合工作流程" width="800"/>
+<img src="assets/five-workflows.png" alt="五個發光的霓虹圖示，分別代表程式碼審查、測試、除錯、重構和 git 整合工作流程" width="800"/>
 
 下方的每個工作流程都是獨立的。挑選符合你目前需求的工作流程，或全部完成。
 
@@ -40,7 +51,7 @@
 
 本章涵蓋了開發者通常使用的五個工作流程。**然而，你不需要一次讀完所有內容！** 每個工作流程都包含在下方可摺疊的章節中。挑選符合你需求且最適合你目前專案的工作流程。你隨時可以稍後回來探索其他內容。
 
-<img src="images/five-workflows-swimlane.png" alt="五個開發工作流程：程式碼審查、重構、除錯、測試產生和 Git 整合，以水平泳道顯示" width="800"/>
+<img src="assets/five-workflows-swimlane.png" alt="五個開發工作流程：程式碼審查、重構、除錯、測試產生和 Git 整合，以水平泳道顯示" width="800"/>
 
 | 我想要... | 跳至 |
 |---|---|
@@ -60,7 +71,7 @@
 <details>
 <summary><strong>工作流程 1：程式碼審查</strong> - 審查檔案、使用 /review 代理程式、建立嚴重性檢查表</summary>
 
-<img src="images/code-review-swimlane-single.png" alt="程式碼審查工作流程：審查、識別問題、優先排序、產生檢查表。" width="800"/>
+<img src="assets/code-review-swimlane-single.png" alt="程式碼審查工作流程：審查、識別問題、優先排序、產生檢查表。" width="800"/>
 
 ### 基礎審查
 
@@ -77,7 +88,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![程式碼審查展示](images/code-review-demo.gif)
+![程式碼審查展示](assets/code-review-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -185,7 +196,7 @@ copilot
 <details>
 <summary><strong>工作流程 2：重構</strong> - 重構程式碼結構、分離關注點、改進錯誤處理</summary>
 
-<img src="images/refactoring-swimlane-single.png" alt="重構工作流程：評估程式碼、計畫變更、實作、驗證行為。" width="800"/>
+<img src="assets/refactoring-swimlane-single.png" alt="重構工作流程：評估程式碼、計畫變更、實作、驗證行為。" width="800"/>
 
 ### 簡單重構
 
@@ -210,7 +221,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![重構展示](images/refactor-demo.gif)
+![重構展示](assets/refactor-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -278,7 +289,7 @@ copilot
 <details>
 <summary><strong>工作流程 3：除錯</strong> - 追蹤漏洞、安全稽核、跨檔案追蹤問題</summary>
 
-<img src="images/debugging-swimlane-single.png" alt="除錯工作流程：理解錯誤、定位根本原因、修正、測試。" width="800"/>
+<img src="assets/debugging-swimlane-single.png" alt="除錯工作流程：理解錯誤、定位根本原因、修正、測試。" width="800"/>
 
 ### 簡單除錯
 
@@ -306,7 +317,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![修正漏洞展示](images/fix-bug-demo.gif)
+![修正漏洞展示](assets/fix-bug-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -419,7 +430,7 @@ copilot
 <details>
 <summary><strong>工作流程 4：測試產生</strong> - 自動產生全面的測試和邊際情況 (edge cases)</summary>
 
-<img src="images/test-gen-swimlane-single.png" alt="測試產生工作流程：分析函式、產生測試、包含邊際情況、執行。" width="800"/>
+<img src="assets/test-gen-swimlane-single.png" alt="測試產生工作流程：分析函式、產生測試、包含邊際情況、執行。" width="800"/>
 
 > **先試試這個：** `@samples/book-app-project/books.py Generate pytest tests for all functions including edge cases`
 
@@ -449,7 +460,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![測試產生展示](images/test-gen-demo.gif)
+![測試產生展示](assets/test-gen-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -570,9 +581,9 @@ copilot
 
 <a id="workflow-5-git-integration"></a>
 <details>
-<summary><strong>工作流程 5：Git 整合</strong> - 提交訊息、PR 說明、/pr、/delegate 和 /diff</summary>
+<summary><strong>工作流程 5：Git 整合</strong> - 提交訊息、PR 說明、/pr、/delegate、/diff 和 /branch</summary>
 
-<img src="images/git-integration-swimlane-single.png" alt="Git 整合工作流程：暫存變更、產生訊息、提交、建立 PR。" width="800"/>
+<img src="assets/git-integration-swimlane-single.png" alt="Git 整合工作流程：暫存變更、產生訊息、提交、建立 PR。" width="800"/>
 
 > 💡 **此工作流程假設你具備基礎 git 知識** (暫存、提交、分支)。如果 git 對你來說是陌生的，請先嘗試其他四個工作流程。
 
@@ -603,7 +614,7 @@ copilot -p "Generate a conventional commit message for: $(git diff --staged)"
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![Git 整合展示](images/git-integration-demo.gif)
+![Git 整合展示](assets/git-integration-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -679,7 +690,7 @@ copilot
 
 ### 使用 /diff 審查階段變更
 
-`/diff` 指令顯示目前階段中所做的所有變更。在提交之前，使用此斜線指令查看 Copilot CLI 修改的所有內容的視覺化差異。
+`/diff` 指令顯示目前階段中所做的所有變更。在提交之前，使用此斜線指令查看 Copilot CLI 修改的所有內容的視覺化差異。它也適用於非 Git 儲存庫的資料夾。
 
 ```bash
 copilot
@@ -690,6 +701,28 @@ copilot
 # 顯示此階段中修改的所有檔案的視覺化差異
 # 非常適合在提交前進行審查
 ```
+
+### 使用 /branch 或 /fork 分支你的對話
+
+有時你想要探索解決問題的兩種不同方法，而不丟失原始對話。`/branch` 指令（也可以使用 `/fork`）會建立目前對話的副本，以便你可以嘗試不同的方向，然後比較結果。
+
+```bash
+copilot
+
+> Fix the find_by_author function to support partial matches
+
+# 你想要嘗試不同的方法 — 先分支！
+> /branch
+
+# 現在你在一個新的對話副本中。嘗試你的替代方法：
+> Fix find_by_author using a different regex-based strategy
+
+# 如果你不喜歡結果，使用 /session 切換回原始對話
+```
+
+> 💡 **`/branch` 和 `/fork` 是一樣的**：這兩個指令執行的操作完全相同。`/branch` 是作為一個更直觀的名稱加入的。使用對你來說更有意義的一個。
+
+> 💡 **何時進行分支**：當你不確定哪種方法更好並希望保留兩個選項時，分支非常有用。
 
 </details>
 
@@ -769,7 +802,7 @@ git commit -m "<paste generated message>"
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 現在輪到你來應用這些工作流程了。
 
@@ -849,7 +882,7 @@ copilot
 
 該練習向開發者展示如何使用 GitHub Copilot CLI 在建構 Node.js 計算機應用程式的同時建立 issue、產生程式碼並從終端機進行協作。你將安裝 CLI，使用模板和代理程式 (agents)，並練習由命令列驅動的迭代式開發。
 
-##### <img src="../images/github-skills-logo.png" width="28" align="center" /> [開始「使用 Copilot CLI 建立應用程式」Skills 練習](https://github.com/skills/create-applications-with-the-copilot-cli)
+##### <img src="../assets/github-skills-logo.png" width="28" align="center" /> [開始「使用 Copilot CLI 建立應用程式」Skills 練習](https://github.com/skills/create-applications-with-the-copilot-cli)
 
 ---
 
@@ -903,7 +936,7 @@ copilot
 
 ## 🔑 重要關鍵
 
-<img src="images/specialized-workflows.png" alt="每項任務的專門工作流程：程式碼審查、重構、除錯、測試和 Git 整合" width="800"/>
+<img src="assets/specialized-workflows.png" alt="每項任務的專門工作流程：程式碼審查、重構、除錯、測試和 Git 整合" width="800"/>
 
 1. **程式碼審查** 透過具體提示變得全面
 2. **重構** 在你先產生測試時更安全

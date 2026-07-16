@@ -1,4 +1,15 @@
-![第 06 章：MCP 伺服器](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-06
+title: !translate 連接到 GitHub、資料庫和 API
+description: !translate 設定 MCP 伺服器，以便 GitHub Copilot CLI 可以連接到 GitHub、本機檔案和文件。databases, and other live data sources.
+audience: 開發者 / 學生 / 終端用戶
+slug: connect-to-github-databases-and-apis
+weight: 7
+---
+-->
+
+![第 06 章：MCP 伺服器](assets/chapter-header.png)
 
 > **如果 Copilot 可以讀取你的 GitHub issue、檢查你的資料庫，並建立 PR... 而且全都在終端機中完成，會怎樣？**
 
@@ -24,7 +35,7 @@
 
 ## 🧩 現實世界的類比：瀏覽器擴充功能
 
-<img src="images/browser-extensions-analogy.png" alt="MCP 伺服器就像瀏覽器擴充功能" width="800"/>
+<img src="assets/browser-extensions-analogy.png" alt="MCP 伺服器就像瀏覽器擴充功能" width="800"/>
 
 將 MCP 伺服器想像成瀏覽器擴充功能。瀏覽器本身可以顯示網頁，但擴充功能將其連接到額外的服務：
 
@@ -42,7 +53,7 @@
 
 ---
 
-<img src="images/quick-start-mcp.png" alt="電源線連接並伴有明亮的電火花，周圍環繞著代表 MCP 伺服器連接的發光科技圖示" width="800"/>
+<img src="assets/quick-start-mcp.png" alt="電源線連接並伴有明亮的電火花，周圍環繞著代表 MCP 伺服器連接的發光科技圖示" width="800"/>
 
 # 快速入門：30 秒瞭解 MCP
 
@@ -80,7 +91,7 @@ MCP 伺服器：
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![MCP 狀態展示](images/mcp-status-demo.gif)
+![MCP 狀態展示](assets/mcp-status-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -117,7 +128,7 @@ MCP 讓 Copilot 意識到你實際的開發環境。
 
 # 設定 MCP 伺服器
 
-<img src="images/configuring-mcp-servers.png" alt="雙手在專業混音器上調整旋鈕和滑桿，代表 MCP 伺服器設定" width="800"/>
+<img src="assets/configuring-mcp-servers.png" alt="雙手在專業混音器上調整旋鈕和滑桿，代表 MCP 伺服器設定" width="800"/>
 
 現在你已經看到 MCP 的實際運作，接下來我們來設定額外的伺服器。你可以用兩種方式新增伺服器：**從內建註冊中心安裝**（最簡單 — 在 CLI 中有引導式設定）或**手動編輯設定檔**（較具彈性）。如果不確定要選哪一種，從註冊中心開始。
 
@@ -141,7 +152,7 @@ Copilot 會開啟互動式選擇器，顯示可用的伺服器。選擇後，CLI
 
 ## MCP 設定檔
 
-MCP 伺服器的設定放在 `~/.copilot/mcp-config.json`（使用者層級，適用於所有專案）或 `.mcp.json`（專案層級，放在專案根目錄）。如果你剛剛使用了 `/mcp search`，CLI 會已為你建立或更新此檔案，但了解其格式以便自訂仍然很有用。
+MCP 伺服器可以在使用者層級的 `~/.copilot/mcp-config.json` 檔案中配置（此配置適用於所有專案），也可以在專案層級的 `.mcp.json` 檔案中配置，或在工作區設定檔 `.github/mcp.json` 檔案中設定。 `.github/mcp.json` 檔案會與 `.mcp.json` 檔案一起自動載入。如果您使用了 `/mcp search` 命令，CLI 會建立或更新您的使用者等級 `~/.copilot/mcp-config.json` 文件，但了解 JSON 格式對於自訂或共用專案層級的 MCP 設定非常有用。
 
 > ⚠️ **注意**：`.vscode/mcp.json` 不再被支援為 MCP 設定來源。如果你有既有的 `.vscode/mcp.json`，請將它移轉到專案根目錄的 `.mcp.json`。CLI 偵測到舊的設定檔時會顯示移轉提示。
 
@@ -359,7 +370,7 @@ copilot
 
 既然你已經設定好了 MCP 伺服器，讓我們看看它們能做什麼。
 
-<img src="images/using-mcp-servers.png" alt="使用 MCP 伺服器 - 軸輻式圖示，顯示開發者 CLI 連接到 GitHub、Filesystem、Context7 以及自訂/Web Fetch 伺服器" width="800" />
+<img src="assets/using-mcp-servers.png" alt="使用 MCP 伺服器 - 軸輻式圖示，顯示開發者 CLI 連接到 GitHub、Filesystem、Context7 以及自訂/Web Fetch 伺服器" width="800" />
 
 ---
 
@@ -557,7 +568,7 @@ copilot
 
 這些工作流程展示了為什麼開發者說「我再也不想在沒有這個的情況下工作了」。每個範例都在單個階段中結合了多個 MCP 伺服器。
 
-<img src="images/issue-to-pr-workflow.png" alt="使用 MCP 的從 Issue 到 PR 工作流程 - 顯示從獲取 GitHub issue 到建立提取請求的完整流程" width="800"/>
+<img src="assets/issue-to-pr-workflow.png" alt="使用 MCP 的從 Issue 到 PR 工作流程 - 顯示從獲取 GitHub issue 到建立提取請求的完整流程" width="800"/>
 
 *完整的 MCP 工作流程：GitHub MCP 檢索儲存庫資料，Filesystem MCP 尋找程式碼，Context7 MCP 提供最佳實作，由 Copilot 處理分析*
 
@@ -617,7 +628,7 @@ copilot
 <details>
 <summary>🎬 看看 MCP 工作流程的實際運作！</summary>
 
-![MCP 工作流程展示](images/mcp-workflow-demo.gif)
+![MCP 工作流程展示](assets/mcp-workflow-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -709,7 +720,7 @@ copilot
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 **🎉 你現在掌握了基礎知識！** 你理解了 MCP，看過了如何設定伺服器，也看過了實際的工作流程。現在輪到你親自嘗試了。
 
@@ -913,6 +924,7 @@ copilot
 | 指令 | 功能 |
 |------|------|
 | `/mcp show` | 顯示所有已設定的 MCP 伺服器及其狀態 |
+| `/mcp list` | 顯示目前已連線的 MCP 伺服器及其狀態；可在 Copilot 執行時運作 |
 | `/mcp add` | 互動式新增伺服器設定 |
 | `/mcp edit <server-name>` | 編輯現有伺服器設定 |
 | `/mcp enable <server-name>` | 啟用伺服器（會跨會話保留） |

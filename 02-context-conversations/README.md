@@ -1,4 +1,15 @@
-![第 02 章：內容與對話](images/chapter-header.png)
+<!--
+---
+id: CopilotCLI-02
+title: !translate 章：內容與對話
+description: !translate 使用 GitHub Copilot CLI 進行檔案和目錄上下文操作、恢復先前的會話以及編寫有效的多輪對話。
+audience: 開發者 / 學生 / 終端用戶
+slug: context-and-conversations
+weight: 3
+---
+-->
+
+![第 02 章：內容與對話](assets/chapter-header.png)
 
 > **如果 AI 能看到你的整個程式碼庫，而不僅僅是每次一個檔案，會怎樣？**
 
@@ -20,7 +31,7 @@
 
 ## 🧩 現實世界的類比：與同事協作
 
-<img src="images/colleague-context-analogy.png" alt="內容帶來的差異 - 無內容 vs 有內容" width="800"/>
+<img src="assets/colleague-context-analogy.png" alt="內容帶來的差異 - 無內容 vs 有內容" width="800"/>
 
 *就像你的同事一樣，Copilot CLI 不是讀心者。提供更多資訊可以幫助人類和 Copilot 提供有針對性的支援！*
 
@@ -36,7 +47,7 @@
 
 # 基本知識：基礎內容
 
-<img src="images/essential-basic-context.png" alt="發光的程式碼塊由光跡連接，代表內容如何在 Copilot CLI 對話中流動" width="800"/>
+<img src="assets/essential-basic-context.png" alt="發光的程式碼塊由光跡連接，代表內容如何在 Copilot CLI 對話中流動" width="800"/>
 
 本節涵蓋了有效運用內容所需的一切知識。請先掌握這些基礎。
 
@@ -89,7 +100,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![檔案內容展示](images/file-context-demo.gif)
+![檔案內容展示](assets/file-context-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -119,7 +130,7 @@ copilot
 
 這是內容成為超能力的地方。單檔案分析很有用，而跨檔案分析則是變革性的。
 
-<img src="images/cross-file-intelligence.png" alt="跨檔案智慧 - 比較單檔案與跨檔案分析，顯示同時分析檔案如何揭示單獨隔離時看不見的漏洞、資料流和模式" width="800"/>
+<img src="assets/cross-file-intelligence.png" alt="跨檔案智慧 - 比較單檔案與跨檔案分析，顯示同時分析檔案如何揭示單獨隔離時看不見的漏洞、資料流和模式" width="800"/>
 
 ### 展示：尋找跨越多個檔案的漏洞
 
@@ -142,7 +153,7 @@ copilot
 <details>
 <summary>🎬 看看它的實際運作！</summary>
 
-![多檔案展示](images/multi-file-demo.gif)
+![多檔案展示](assets/multi-file-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -185,7 +196,7 @@ copilot
 
 ### 展示：在 60 秒內理解程式碼庫
 
-<img src="images/codebase-understanding.png" alt="分屏比較顯示手動程式碼審查需要 1 小時，而 AI 輔助分析僅需 10 秒" width="800" />
+<img src="assets/codebase-understanding.png" alt="分屏比較顯示手動程式碼審查需要 1 小時，而 AI 輔助分析僅需 10 秒" width="800" />
 
 剛接觸一個專案？使用 Copilot CLI 快速瞭解它。
 
@@ -253,7 +264,7 @@ copilot
 <details>
 <summary>🎬 看看多輪對話的實際運作！</summary>
 
-![多輪展示](images/multi-turn-demo.gif)
+![多輪展示](assets/multi-turn-demo.gif)
 
 *展示輸出會有所不同。你的模型、工具和回應將與此處顯示的內容不同。*
 
@@ -302,6 +313,9 @@ copilot --continue
 ```bash
 # 互動式地從階段清單中挑選
 copilot --resume
+
+# -r 是 --resume 的簡寫形式（可以節省一些輸入！）
+copilot -r
 
 # 或透過 ID 恢復特定階段
 copilot --resume=abc123
@@ -400,7 +414,7 @@ copilot
 
 ### 從上次停下的地方繼續
 
-<img src="images/session-persistence-timeline.png" alt="時間軸顯示 GitHub Copilot CLI 階段如何跨越數天持久存在 - 從週一開始，在週三恢復並還原完整內容" width="800"/>
+<img src="assets/session-persistence-timeline.png" alt="時間軸顯示 GitHub Copilot CLI 階段如何跨越數天持久存在 - 從週一開始，在週三恢復並還原完整內容" width="800"/>
 
 *當你退出時，階段會自動儲存。幾天後恢復，完整內容：檔案、問題和進度都會被記住。*
 
@@ -459,7 +473,7 @@ copilot --resume=book-app-review
 
 # 選修：深入探究
 
-<img src="images/optional-going-deeper.png" alt="藍色和紫色調的抽象水晶洞穴，代表對內容概念的更深層探索" width="800"/>
+<img src="assets/optional-going-deeper.png" alt="藍色和紫色調的抽象水晶洞穴，代表對內容概念的更深層探索" width="800"/>
 
 這些主題建立在上述基礎之上。**挑選你感興趣的內容，或直接跳至 [練習](#練習)。**
 
@@ -571,7 +585,7 @@ Copilot CLI：「基於帶有類型和錯誤處理的類別...」
 
 每個 AI 都有一個「內容視窗」，即它一次可以考慮的文字量。
 
-<img src="images/context-window-visualization.png" alt="內容視窗視覺化" width="800"/>
+<img src="assets/context-window-visualization.png" alt="內容視窗視覺化" width="800"/>
 
 *內容視窗就像一張桌子：它一次只能容納這麼多。檔案、對話紀錄和系統提示都會佔用空間。*
 
@@ -734,9 +748,9 @@ copilot
 ```bash
 copilot
 
-> @images/screenshot.png What is happening in this image?
+> @assets/screenshot.png What is happening in this image?
 
-> @images/mockup.png Write the HTML and CSS to match this design. Place it in a new file called index.html and put the CSS in styles.css.
+> @assets/mockup.png Write the HTML and CSS to match this design. Place it in a new file called index.html and put the CSS in styles.css.
 ```
 
 > 📖 **瞭解更多**：查看 [額外的內容功能](../appendices/additional-context.md#working-with-images) 以獲取支援的格式、實際使用案例以及將圖片與程式碼結合的提示。
@@ -747,7 +761,7 @@ copilot
 
 # 練習
 
-<img src="../images/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
+<img src="../assets/practice.png" alt="溫馨的書桌設置，螢幕上顯示程式碼，還有檯燈、咖啡杯和耳機，準備好進行動手練習" width="800"/>
 
 是時候運用你的內容與階段管理技能了。
 
