@@ -533,10 +533,10 @@ copilot skill remove security-audit
 # 從終端機 (無需互動式工作階段)：
 copilot skill list
 
-Available skills:
+Project skills:
 - security-audit: Security-focused code review checking OWASP Top 10
 - generate-tests: Generate comprehensive unit tests with edge cases
-- code-checklist: Team code quality checklist
+- code-checklist: Team code quality checklist (disabled)
 ...
 
 # 或從 Copilot 工作階段內：
@@ -544,10 +544,10 @@ copilot
 
 > /skills list
 
-可用技能：
+Project skills:
 - security-audit: Security-focused code review checking OWASP Top 10
 - generate-tests: Generate comprehensive unit tests with edge cases
-- code-checklist: Team code quality checklist
+- code-checklist: Team code quality checklist (disabled)
 ...
 
 > /skills info security-audit
@@ -557,6 +557,8 @@ copilot
 位置：.github/skills/security-audit/SKILL.md
 說明：Security-focused code review checking OWASP Top 10 vulnerabilities
 ```
+
+> 💡 **已停用的技能**：標記為 `(disabled)` 的技能已安裝，但目前未啟用。在重新啟用之前，它們不會被提示詞觸發。這可能是因為技能的 `SKILL.md` 檔案有設定問題，或者該技能被明確停用。您可以透過執行 `/skills` 來啟用/停用技能。
 
 ---
 

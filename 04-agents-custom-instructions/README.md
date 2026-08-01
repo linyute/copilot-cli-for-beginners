@@ -107,8 +107,27 @@ copilot
 | ✅ **成功** | 簡短摘要 (例如，「所有 247 個測試均已通過」、「建構成功」) |
 | ❌ **失敗** | 包含堆疊追蹤、編譯器錯誤和詳細日誌的完整輸出 |
 
+> 💡 **多輪對話子代理程式**：子代理程式（由代理程式啟動的背景任務）支援後續訊息。當代理程式在背景執行時，你可以開啟 `/tasks` 來檢視並傳送後續指示。你不需要等待它完成才能進一步引導它。想像這就像在助理執行任務途中拍拍他的肩膀給予額外指導一樣。
 
-> 📚 **官方文件**：[GitHub Copilot CLI 代理程式](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents)
+### 為計畫模式選擇模型
+
+預設情況下，`/plan` 使用你為工作階段選擇的相同 AI 模型。你可以選擇*不同*的模型僅在計畫模式下使用 — 非常適合在規劃時使用速度更快或成本更低的模型，然後切換回更強大的模型進行實作：
+
+```bash
+copilot
+
+# 僅為計畫模式開啟模型選擇器
+> /model plan
+
+# 或直接指定模型 ID（使用 'off' 清除計畫模式模型）
+> /model plan gpt-5.6-sol
+
+# 離開計畫模式後，模型會自動恢復為你的工作階段模型
+```
+
+> 💡 **為什麼要設定計畫模式模型？** 事先由前沿模型建立的高品質計畫，實際上可以在整體上節省 Token 和時間。精準且範疇明確的計畫意味著在實作過程中可以減少來回修正。
+
+> 📚 **官方文件**：[GitHub Copilot CLI Agents](https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents)
 
 ---
 
