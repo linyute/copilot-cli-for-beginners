@@ -143,17 +143,20 @@ copilot
 > /login
 ```
 
-**接下來會發生什麼：**
+**接下來會發生什麼事（本機終端機）：**
 
-1. Copilot CLI 顯示一個一次性代碼 (例如 `ABCD-1234`)
-2. 你的瀏覽器會開啟 GitHub 的裝置授權頁面。如果你尚未登入 GitHub，請登入。
-3. 在提示時輸入代碼
-4. 選擇「Authorize」以授予 GitHub Copilot CLI 存取權限
-5. 返回你的終端機 - 你現在已登入！
+1. 選擇登入你的 GitHub.com 帳號或企業帳號。
+2. 選取 `Sign in with your browser (recommended)`。
+3. 瀏覽器會自動開啟 GitHub 的授權頁面。如果你尚未登入 GitHub，請先登入。
+4. 選取「Authorize」以授權 GitHub Copilot CLI 存取權限。
+5. 返回終端機 — 你現在已登入！
 
-<img src="assets/auth-device-flow.png" alt="裝置授權流程 - 顯示從終端機登入到登入確認的 5 個步驟" width="800"/>
-
-*裝置授權流程：你的終端機產生一個代碼，你在瀏覽器中驗證它，然後 Copilot CLI 獲得驗證。*
+> 💡 **遠端或無頭終端機**：如果你使用遠端伺服器或沒有瀏覽器的終端機（例如 SSH），Copilot CLI 會改用**裝置代碼流程**。你會看到一次性代碼，例如 `ABCD-1234`。請在另一台電腦的瀏覽器中造訪 [github.com/login/device](https://github.com/login/device)，並輸入代碼以完成登入。若要強制使用特定流程，請使用 `copilot login --web-flow` 以使用瀏覽器快顯視窗，或使用 `copilot login --device-code` 以使用代碼流程。你也可以透過 `/login` 互動式選擇。
+> 
+> <img src="assets/auth-device-flow.png" alt="裝置授權流程 — 顯示從終端機登入到確認登入成功的 5 個步驟" width="800"/>
+>
+ 
+*瀏覽器流程：瀏覽器會自動開啟，你只需按一下即可授權。在遠端或無頭終端機上，系統會改為顯示裝置代碼。*
 
 **提示**：登入會在不同階段之間保持。除非你的權杖過期或你明確登出，否則你只需要執行一次。
 
@@ -267,7 +270,7 @@ copilot
 
 ### 瀏覽器未自動開啟
 
-手動造訪 [github.com/login/device](https://github.com/login/device) 並輸入終端機中顯示的代碼。
+在遠端或無頭終端機上，系統會改用裝置代碼流程。你的終端機會顯示一次性代碼。請造訪 [github.com/login/device](https://github.com/login/device) 並輸入代碼，然後授權存取權限。
 
 ### 權杖過期
 
