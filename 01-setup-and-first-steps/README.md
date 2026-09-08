@@ -411,11 +411,13 @@ copilot --allow-all -p "Review @myfile.py for issues"
 |---------|--------------|
 | `/agent` | 瀏覽並選取可用的代理程式 |
 | `/env` | 顯示已載入的環境詳細資料——目前啟用的指示、MCP 伺服器、技能、代理程式和外掛程式 |
-| `/init` | 為存放庫初始化 Copilot 指示 |
-| `/mcp` | 管理 MCP 伺服器設定 |
-| `/plugins` | 不重新啟動工作階段，即可啟用或停用外掛程式、指示、代理程式、LSP 伺服器和勾點 |
-| `/settings` | 開啟互動式對話框，在同一處瀏覽和編輯所有使用者設定 |
-| `/skills` | 管理用於強化功能的技能 |
+| `/init` | 初始化存放庫的 Copilot 指示 |
+| `/instructions` | 檢視並管理目前工作階段已載入的所有指示檔案 |
+| `/mcp` | 開啟外掛程式儀表板（聚焦於 MCP 伺服器）；使用 `/mcp config` 開啟專用的 MCP 設定精靈 |
+| `/plugin` | 開啟外掛程式儀表板，以瀏覽、安裝、啟用及更新外掛程式 |
+| `/settings` | 開啟互動式對話方塊，在同一處瀏覽及編輯所有使用者設定 |
+| `/skills` | 開啟外掛程式儀表板（聚焦於技能），以探索及管理技能 |
+| `/subagents` | 檢視並管理目前工作階段中執行的子代理程式 |
 
 > 💡 代理程式請參閱[第 04 章](../04-agents-custom-instructions/README.md)，技能請參閱[第 05 章](../05-skills/README.md)，MCP 伺服器請參閱[第 06 章](../06-mcp-servers/README.md)。
 
