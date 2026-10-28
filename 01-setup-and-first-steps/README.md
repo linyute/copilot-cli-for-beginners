@@ -518,7 +518,18 @@ copilot
 # 顯示可用模型並讓你選擇。範例：GPT-6 Sol、GPT-6 Luna、Claude Sonnet 5.5、Claude Opus 5.5。
 ```
 
-> 💡 **工作階段模型與持久模型**：`/model` 指令只會變更**目前工作階段**的模型。啟動新的工作階段時，Copilot 會再次使用預設模型。若要為所有未來工作階段設定永久預設模型，請改用 `/config model`。
+> 💡 **工作階段模型與永久模型**：`/model` 指令只會變更**目前工作階段**使用的模型。開始新的工作階段時，Copilot 會再次使用預設模型。若要為所有未來的工作階段設定永久的預設模型，請在工作階段中使用 `/config model`，或在一般 Shell 中使用終端機指令 `copilot config`（不需要啟動工作階段）：
+
+```bash
+# 在終端機中設定預設模型（不必啟動 Copilot 工作階段）
+copilot config set model claude-sonnet-5.5
+
+# 查看所有已儲存的設定
+copilot config list
+
+# 移除設定並恢復為預設值
+copilot config remove model
+```
 
 > 💡 **提示**：Copilot CLI 的使用量以 **GitHub AI Credits** 計算。使用的點數取決於你選擇的模型，以及任務消耗的 Token 數量。功能更強大的模型可能會消耗較多點數，因此日常任務可使用較輕量的模型，並將推理能力較強的模型留給複雜工作。執行 `/usage` 可查看目前工作階段已使用的 AI 點數。
 
@@ -527,6 +538,75 @@ copilot
 > 💡 **模型系列捷徑**：你也可以直接在 `/model` 選擇器中輸入簡短的系列別名，例如 `opus`、`sonnet`、`haiku`、`gpt` 或 `gemini`，而不必捲動瀏覽完整清單。Copilot 會為你選擇該系列中最佳的可用模型。
 
 > 💡 **模型選擇器導覽**：模型選擇器現在會將模型分為 **最近使用**、**推薦**和**新增**區段，讓你快速找到上次使用的模型或嘗試新推出的模型。在選擇器中使用 **Shift+Tab**，即可切換不同的分組檢視。
+
+### Auto 自動路由層級
+
+Copilot CLI 提供 **Auto** 自動路由層級，會為每項任務智慧選擇最適合的模型：
+
+```bash
+copilot
+
+> /model
+# 選擇「Auto」，讓 Copilot 按速度和成本自動選擇最佳模型
+```
+
+Auto 自動路由會考量任務的複雜度，並在快速（輕量型）和高效能（具備推理能力）模型之間選擇，以平衡速度與能力。如果你的組織已設定受管理的 Auto 政策，你可能會看到 **Strict** 模式或可由使用者覆寫的路由偏好等額外選項。
+
+> 💡 **新模型現已推出**：除了現有模型外，Copilot CLI 現在也支援 **GPT-6 Astra**、**GPT-6.1 Sol**、**GPT-6 Luna** 和 **Claude Opus 5.5**。快到 `/model` 選擇器試試看！
+
+### 使用 `copilot config` 管理設定
+
+除了互動式斜線指令 `/config`，你也可以在終端機使用 `copilot config` 指令管理 Copilot CLI 設定：
+
+```bash
+# 列出所有目前的設定
+copilot config list
+
+# 查看特定設定
+copilot config read model
+copilot config read editorMode
+
+# 設定預設值
+copilot config set model opus        # 將 Claude Opus 設為預設模型
+copilot config set editorMode vim    # 預設啟用 Vim 模式
+
+# 移除自訂設定（還原為預設值）
+copilot config remove model
+```
+
+這適合用於撰寫指令碼、設定新裝置，或在互動式工作階段之外管理設定。使用 `copilot config` 管理的設定會儲存在 `~/.copilot/config.json`，並套用至所有後續工作階段。
+
+### 自訂對話記錄檢視
+
+你可以設定對話記錄檢視模式，控制 Copilot 如何顯示工具活動和推理過程：
+
+```bash
+copilot
+
+> /settings
+# 找到「Transcript view」選項並設為「concise」
+
+# 或直接在 ~/.copilot/config.json 中設定：
+# "transcriptView": "concise"
+```
+
+**檢視選項：**
+- **Default（預設）**：展開顯示所有工具呼叫和推理步驟
+- **Concise（精簡）**：將相關工具活動整理成可摺疊的工作摘要，減少畫面雜亂，同時保留細節供你查看
+
+如果你想專注於整體進度，不希望被中間步驟淹沒，精簡檢視會很實用。
+
+### 工作階段開始前選擇環境
+
+啟動 Copilot CLI 後，你現在可以在輸入第一個提示之前，切換 **local（本機）**和 **cloud（雲端）**執行模式：
+
+```bash
+copilot
+# Copilot 啟動後，按 Ctrl+E 開啟環境選擇器
+# 選擇：Local（在你的電腦上執行）或 Cloud（遠端執行）
+```
+
+當你需要切換不同工作方式時，這項功能就很實用——例如在電腦上互動操作，或在雲端執行背景工作。你的選擇會套用至目前工作階段，直到你再次切換為止。
 
 </details>
 

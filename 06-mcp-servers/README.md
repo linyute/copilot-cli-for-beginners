@@ -223,7 +223,7 @@ GitHub MCP 伺服器是內建的，不需要設定。下方是你可以新增的
 
 > 💡 **`.` 路徑**：`.` 表示「目前目錄」。Copilot 可以存取相對於你啟動它的位置的檔案。在 Codespace 中，這是你的工作區根目錄。如果你願意，也可以使用絕對路徑，例如 `/workspaces/copilot-cli-for-beginners`。
 
-將此新增至你的 `~/.copilot/mcp-config.json` 並重啟 Copilot。
+將此內容新增至你的 `~/.copilot/mcp-config.json`。MCP 設定變更會在不同回合之間生效。
 
 </details>
 
@@ -252,7 +252,7 @@ Context7 讓 Copilot 可以存取熱門框架和函式庫的最新文件。Copil
 - ✅ **不需要帳號**
 - ✅ **你的程式碼保留在本地**
 
-將此新增至你的 `~/.copilot/mcp-config.json` 並重啟 Copilot。
+將此內容新增至你的 `~/.copilot/mcp-config.json`。MCP 設定變更會在回合之間生效。
 
 </details>
 
@@ -301,7 +301,9 @@ copilot
 
 Copilot CLI 包含一個內建的 `web_fetch` 工具，可以從任何 URL 獲取內容。這對於在不離開終端機的情況下引入 README、API 文件或發佈說明非常有用。不需要 MCP 伺服器。
 
-你可以透過 `~/.copilot/config.json` (一般 Copilot 設定) 控制哪些 URL 可存取，這與 `~/.copilot/mcp-config.json` (MCP 伺服器定義) 是分開的。
+你可以透過 `~/.copilot/settings.json`（一般 Copilot 設定）控管可存取的 URL；此檔案與 `~/.copilot/mcp-config.json`（MCP 伺服器定義）分開。
+
+> ⚠️ **設定檔位置**：Copilot CLI 會從 `~/.copilot/settings.json` 讀取使用者設定。舊版的 `~/.copilot/config.json` 不再用於存放使用者設定，放在其中的任何索引鍵都會被忽略，不會顯示通知。
 
 ```json
 {
@@ -757,7 +759,7 @@ copilot
 
 **預期結果**：Copilot 列出 `book_app.py`、`books.py` 和 `utils.py` 及其函式。
 
-> 💡 **還沒設定檔案系統 MCP？** 根據上方的「[完整的設定](#complete-configuration-file)」章節建立設定檔。然後重啟 Copilot。
+> 💡 **尚未設定檔案系統 MCP？** 請依照上方[完整設定](#complete-configuration-file)一節建立設定檔。MCP 設定變更會在回合之間生效。
 
 ---
 
@@ -851,7 +853,7 @@ copilot
 
 `test_books.py` 中的測試涵蓋了：`add_book`、`mark_as_read`、`remove_book`、`get_unread_books` 和 `find_book_by_title`。諸如 `load_books`、`save_books` 和 `list_books` 等函式則沒有直接測試。`book_app.py` 中的 CLI 函式和 `utils.py` 中的輔助函式完全沒有測試。
 
-**如果 MCP 無法運作**：編輯設定檔後請重啟 Copilot。
+**如果 MCP 無法正常運作：** MCP 設定變更現在會在不同回合之間自動生效。如果你剛新增伺服器，而 Copilot 尚未偵測到，請輸入下一則訊息，伺服器應該就會可用。
 
 </details>
 
